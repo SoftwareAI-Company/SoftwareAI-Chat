@@ -1,1 +1,0 @@
-# fluxo de agentes para construir um painel de controle e gestao do aplicativo criado
