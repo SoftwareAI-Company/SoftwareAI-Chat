@@ -1,0 +1,117 @@
+from agents import Agent, handoff, RunContextWrapper
+import requests
+from dotenv import load_dotenv, find_dotenv
+import os
+from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
+from pydantic import BaseModel
+
+from modules.modules import *
+
+
+# from Code.BackEnd.Sprint9.Integration import CodeFlaskBackEndSprint9Agent
+
+class FrontEndData(BaseModel):
+    FrontEndContent: str
+
+async def on_handoff(ctx: RunContextWrapper[None], input_data: FrontEndData):
+    print(f"CodeFlaskBackEndSprint8Agent: {input_data.FrontEndContent}")
+    # response = requests.post("http://localhost:5000/agent/refund", json={"input": input_data.reason})
+    # reply = response.json().get("reply")
+              
+def CodeFlaskBackEndSprint8Agent(                                
+                                session_id, 
+                                appcompany,
+                                path_ProjectWeb,
+                                path_html,
+                                path_js,
+                                path_css,
+                                doc_md,
+                                Keys_path,
+
+                      ):
+
+    os.chdir(path_ProjectWeb)
+
+
+    # session_id_CodeFlaskBackEndSprint9Agent = "teste_handoff_CodeFlaskBackEndSprint9Agent"
+    # agent_, handoff_obj_CodeFlaskBackEndSprint9Agent = CodeFlaskBackEndSprint9Agent(session_id_CodeFlaskBackEndSprint9Agent, appcompany)
+
+    Tools_Name_dict = Egetoolsv2(["autosave", "autogetlocalfilecontent"])
+
+    api_login = '''
+```python
+@app.route('/api/login', methods=['POST'])
+def apilogin():
+    data = request.get_json()
+    email = data.get("email")
+    password = data.get("password")
+
+    if not email or not password:
+        return jsonify({"error": "Email e senha são obrigatórios"}), 400
+
+    email_safe = email.replace('.', '_')
+    user = db.reference(f'users/{email_safe}', app=appcompany).get()
+
+    if not user:
+        return jsonify({"error": "Usuário não encontrado"}), 404
+
+    if user["password"] != password:
+        return jsonify({"error": "Senha incorreta"}), 401
+
+    session['user'] = email
+    session.permanent = True  # <- IMPORTANTE
+
+    return jsonify({"message": "Login realizado com sucesso"}), 200
+
+```
+    '''
+   
+# {RECOMMENDED_PROMPT_PREFIX}\n
+# ---
+
+# Ao final de sua execução, utilize o Handoffs transfer_to_code_upload_git_agent
+# Ao final de sua execução, Encaminhe o usuário para o agente de Code Upload Git Agent
+# prossiga com a criacao do repositorio e o upload dos arquivos da aplicacao 
+# Encaminhe ao agente Code Upload Git Agent para criação do repositório e upload 
+# dos arquivos da aplicação.
+# ---
+
+# voce tem autonomia total para trabalhar nao pergunte se precisa de melhorias ou ajustes
+# jamais retorne a resposta se autosave estiver disponivel (pois a resposta deve ser o argumento code de autosave possibilitando o salvamento de forma autonoma)
+
+# ---
+
+
+    agent_ids = ['api_login']
+    agents_metadata = EgetMetadataAgent(agent_ids)
+
+    name = agents_metadata[f'{agent_ids[0]}']["name"]
+    model = agents_metadata[f'{agent_ids[0]}']["model"]
+    instruction = agents_metadata[f'{agent_ids[0]}']["instruction"]
+    try:
+      tools = agents_metadata[f'{agent_ids[0]}']["tools"]
+      Tools_Name_dict = Egetoolsv2(list(tools))
+    except:
+      pass
+
+    instruction_formatado = format_instruction(instruction, locals())
+
+    agent = Agent(
+        name=str(name),
+        instructions=f"""{RECOMMENDED_PROMPT_PREFIX}\n
+        {instruction_formatado}        
+        """,
+        model=str(model),
+        tools=Tools_Name_dict,
+        # handoffs=[handoff_obj_CodeFlaskBackEndSprint8Agent],
+    )
+
+
+
+
+    handoff_obj = handoff(
+        agent=agent,
+        on_handoff=on_handoff,
+        input_type=FrontEndData,
+    )
+    return agent, handoff_obj
