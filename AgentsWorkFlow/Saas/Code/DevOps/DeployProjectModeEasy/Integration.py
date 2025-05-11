@@ -22,7 +22,6 @@ def DeployProjectModeEasy(session_id, appcompany,
                         path_css,
                         doc_md,
                         Keys_path,
-                        _CreateWebhook
                     ):
     path_Keys = Keys_path
     os.chdir(path_ProjectWeb)
@@ -43,12 +42,12 @@ def DeployProjectModeEasy(session_id, appcompany,
 
     agent = Agent(
         name=str(name),
-        instructions=f"""{RECOMMENDED_PROMPT_PREFIX}\n
+        instructions=f"""
         {instruction_formatado}        
         """,
         model=str(model),
         tools=Tools_Name_dict,
-        handoffs=[_CreateWebhook],
+        # handoffs=[_CreateWebhook],
     )
 
 
