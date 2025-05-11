@@ -68,6 +68,7 @@ from AgentsWorkFlow.Saas.Code.ProjectManager.Documentation.Modules.Integration i
 from AgentsWorkFlow.Saas.Code.ProjectManager.Documentation.Staticjs.Integration import CodeDocumentationStaticjsAgent
 from AgentsWorkFlow.Saas.Code.ProjectManager.Documentation.Technich.Integration import CodeDocumentationTechnichAgent
 
+from AgentsWorkFlow.Saas.Code.DevOps.DeployProjectModeEasy.Integration import DeployProjectModeEasy
 
 
 from Keys.keys import *
@@ -2166,11 +2167,11 @@ API_BASE_URL="http://127.0.0.1:5000"
 
         # /api/AgentsWorkFlow/Saas/teams/Documentation V
 
-        # /api/AgentsWorkFlow/Saas/teams/CodeReview
+        # /api/AgentsWorkFlow/Saas/teams/DevOps/RunBuild V
 
-        # /api/AgentsWorkFlow/Saas/teams/DevOps/EasyDeploy
+        # /api/AgentsWorkFlow/Saas/teams/DevOps/EasyDeploy 
 
-        # /api/AgentsWorkFlow/Saas/teams/QA
+        # /api/AgentsWorkFlow/Saas/teams/QA 
 
         # /api/AgentsWorkFlow/Saas/teams/ProductManager
 
@@ -3561,7 +3562,7 @@ def api_AgentsWorkFlow_Saas_teams_Documentation():
         "session_id": session_id,
     }), 201
 
-@app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/EasyDeploy', methods=['POST'])
+@app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/RunBuild', methods=['POST'])
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))  
 def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
     data = request.get_json()
@@ -3638,6 +3639,89 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
     return jsonify({
         "session_id": session_id,
     }), 201
+
+
+@app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/EasyDeploy', methods=['POST'])
+@limiter.limit(lambda: dynamic_rate_limit(appcompany))  
+def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
+    data = request.get_json()
+    session_id = data.get("session_id")
+    user_email = data.get("user_email")
+    path_ProjectWeb = data.get("path_ProjectWeb")
+    path_html = data.get("path_html")
+    path_js = data.get("path_js")
+    path_css = data.get("path_css")
+    doc_md = data.get("doc_md")
+    path_Keys = data.get("path_Keys")
+    Keys_path = path_Keys
+    type_stream = data.get("type_stream")
+    prompt_continuous = data.get("prompt_continuous")
+
+    usuario, erro = autenticar_usuario(appcompany=appcompany)
+    if erro:
+        return erro
+
+    async def generate_response():
+
+        async def _DeployProjectModeEasy_logic(data, appcompany):
+            session_id         = data["session_id"]
+            user_email         = data["user_email"]
+            prompt_continuous  = data.get("prompt_continuous", "")
+
+            agent, _ = DeployProjectModeEasy(session_id, appcompany,
+                                path_ProjectWeb,
+                                path_html,
+                                path_js,
+                                path_css,
+                                doc_md,
+                                Keys_path,
+                            )
+
+            for _ in range(3):
+                try:
+                    await process_stream(
+                        "info", agent, prompt_continuous,
+                        WEBHOOK_URL, session_id, user_email,
+                        "agent_", appcompany
+                    )
+                    return {"step": "DeployProjectModeEasy", "session_id": session_id}
+                except Exception as e:
+                    if "Error streaming response" in str(e):
+                        continue
+                    raise
+
+            return {
+                "step": "DeployProjectModeEasy",
+                "session_id": session_id,
+                "fallback": "Erro de stream repetido"
+            }
+
+        def run_DeployProjectModeEasy(data, appcompany):
+            return asyncio.run(_DeployProjectModeEasy_logic(data, appcompany))
+
+        data = {
+                "session_id": session_id,
+                "user_email": user_email,
+                "prompt_continuous": prompt_continuous,
+            }
+
+        results = []
+        try:
+            results.append(run_DeployProjectModeEasy(data, appcompany))
+        except Exception as e:
+            traceback.print_exc()
+
+
+    def runner():
+        asyncio.run(generate_response())
+
+    threading.Thread(target=runner).start()
+    
+    return jsonify({
+        "session_id": session_id,
+    }), 201
+
+
 
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/QA', methods=['POST'])
