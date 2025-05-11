@@ -2398,7 +2398,7 @@ def api_AgentsWorkFlow_Saas_teams_ProjectManager():
 
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/FrontEnd', methods=['POST'])
-@limiter.limit(lambda: dynamic_rate_limit(appcompany))
+@limiter.limit(lambda: dynamic_rate_limit(appcompany)) 
 def api_AgentsWorkFlow_Saas_teams_FrontEnd():
     data = request.get_json()
     session_id = data.get("session_id")
