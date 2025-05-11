@@ -3562,7 +3562,7 @@ def api_AgentsWorkFlow_Saas_teams_Documentation():
     }), 201
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/EasyDeploy', methods=['POST'])
-@limiter.limit(lambda: dynamic_rate_limit(appcompany))
+@limiter.limit(lambda: dynamic_rate_limit(appcompany))  
 def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
     data = request.get_json()
     session_id = data.get("session_id")
@@ -3638,6 +3638,7 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
     return jsonify({
         "session_id": session_id,
     }), 201
+
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/QA', methods=['POST'])
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))
