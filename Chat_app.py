@@ -1244,7 +1244,7 @@ def index():
 # Rota para a página de Login
 @app.route('/login')
 def login():
-    return render_template('loginAndRegistrer.html')
+    return render_template('login.html')
     '''
 
     dashboard = '''
