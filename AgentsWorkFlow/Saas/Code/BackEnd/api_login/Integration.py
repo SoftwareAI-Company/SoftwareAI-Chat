@@ -8,17 +8,14 @@ from pydantic import BaseModel
 from modules.modules import *
 
 
-# from Code.BackEnd.Sprint9.Integration import CodeFlaskBackEndSprint9Agent
-
 class FrontEndData(BaseModel):
     FrontEndContent: str
 
 async def on_handoff(ctx: RunContextWrapper[None], input_data: FrontEndData):
-    print(f"CodeFlaskBackEndSprint8Agent: {input_data.FrontEndContent}")
-    # response = requests.post("http://localhost:5000/agent/refund", json={"input": input_data.reason})
-    # reply = response.json().get("reply")
+    print(f"CodeFlaskBackEndapi_loginAgent: {input_data.FrontEndContent}")
+
               
-def CodeFlaskBackEndSprint8Agent(                                
+def CodeFlaskBackEndapi_loginAgent(                                
                                 session_id, 
                                 appcompany,
                                 path_ProjectWeb,
@@ -27,6 +24,7 @@ def CodeFlaskBackEndSprint8Agent(
                                 path_css,
                                 doc_md,
                                 Keys_path,
+                                api_login
 
                       ):
 
@@ -38,34 +36,6 @@ def CodeFlaskBackEndSprint8Agent(
 
     Tools_Name_dict = Egetoolsv2(["autosave", "autogetlocalfilecontent"])
 
-    api_login = '''
-```python
-@app.route('/api/login', methods=['POST'])
-def apilogin():
-    data = request.get_json()
-    email = data.get("email")
-    password = data.get("password")
-
-    if not email or not password:
-        return jsonify({"error": "Email e senha são obrigatórios"}), 400
-
-    email_safe = email.replace('.', '_')
-    user = db.reference(f'users/{email_safe}', app=appcompany).get()
-
-    if not user:
-        return jsonify({"error": "Usuário não encontrado"}), 404
-
-    if user["password"] != password:
-        return jsonify({"error": "Senha incorreta"}), 401
-
-    session['user'] = email
-    session.permanent = True  # <- IMPORTANTE
-
-    return jsonify({"message": "Login realizado com sucesso"}), 200
-
-```
-    '''
-   
 # {RECOMMENDED_PROMPT_PREFIX}\n
 # ---
 
@@ -98,7 +68,7 @@ def apilogin():
 
     agent = Agent(
         name=str(name),
-        instructions=f"""{RECOMMENDED_PROMPT_PREFIX}\n
+        instructions=f"""
         {instruction_formatado}        
         """,
         model=str(model),

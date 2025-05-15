@@ -6,8 +6,6 @@ from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
 from pydantic import BaseModel
 
 from modules.modules import *
-from modules.Egetoolsv2 import *
-from modules.EgetMetadataAgent import *
 
 
 
@@ -26,28 +24,10 @@ def CodeDockerBuildAgent(session_id, appcompany,
                         path_css,
                         doc_md,
                         Keys_path,
+                        dockerbuild
                     ):
    
     os.chdir(path_ProjectWeb)
-
-    dockerbuild = '''
-import subprocess
-import os
-
-os.chdir(os.path.join(os.path.dirname(__file__)))
-# Adiciona o caminho do Docker Compose
-os.environ["PATH"] += r";C:\Program Files\Docker\Docker\resources\bin"
-
-def executar_comando(comando):
-    """Executa um comando sem abrir um novo terminal (funciona dentro do contêiner)."""
-    subprocess.run(comando, shell=True)
-
-
-executar_comando("docker-compose up --build")
-
-
-    '''
-
 
     agent_ids = ['DockerBuild']
     agents_metadata = EgetMetadataAgent(agent_ids)
