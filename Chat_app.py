@@ -8,67 +8,48 @@ from softwareai_engine_library.EngineProcess.EgetMetadataAgent import *
 #########################################
 from softwareai_engine_library.EngineProcess.EgetTools import *
 #########################################
-
-
-from AgentsWorkFlow.Saas.Decisions.TypeProject.Integration import TriageAgent
-from AgentsWorkFlow.Saas.Code.FrontEnd.Login.Integration import CodeLoginFrontEnd
-
-from AgentsWorkFlow.Saas.Code.FrontEnd.Checkout.Integration import CodeCheckoutFrontEnd
-from AgentsWorkFlow.Saas.Code.FrontEnd.NavigationJS.Integration import CodeNavigationJSFrontEnd
-
-from AgentsWorkFlow.Saas.Code.BackEnd.basic_endpoints.Integration import CodeFlaskBackEnd_basic_endpointsAgent
-from AgentsWorkFlow.Saas.Code.BackEnd.api_create_checkout.Integration import CodeFlaskBackEndapi_create_checkoutAgent
-from AgentsWorkFlow.Saas.Decisions.Dashboard_Decision.Integration import CodeFrontEndDecisionDashboard
-from AgentsWorkFlow.Saas.Code.DevOps.DockerFile.Integration import CodeDockerFileAgent
-from AgentsWorkFlow.Saas.Code.DevOps.DockerBuild.Integration import CodeDockerBuildAgent
-from AgentsWorkFlow.Saas.Code.ProjectManager.Documentation.Modules.Integration import CodeDocumentationModulesAgent
-from AgentsWorkFlow.Saas.Code.DevOps.Git.Integration import CodeUploadGit
-from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_BackEnd_Endpoints.Integration import CodeBackendEndpointscodereviewAgent
-from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_FrontEnd_JS.Integration import CodeReviewFrontEndJSAgent
-from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_FrontEnd_Html.Integration import CodeReviewFrontEndHtmlAgent
-from AgentsWorkFlow.Saas.Code.ProductManager.CreateProduct.Integration import CreateProduct
-from AgentsWorkFlow.Saas.Code.DevOps.RunBuildProject.Integration import RunBuildProject
-from AgentsWorkFlow.Saas.Code.ProjectManager.Keys_env.Integration import CodeFlaskBackEndKeysenvAgent
-from AgentsWorkFlow.Saas.Code.ProjectManager.Keys_fb.Integration import CodeFlaskBackEnd_Keys_fb_STATIC
-
-from AgentsWorkFlow.Saas.Code.QA.unittest_user_created_by_ui.Integration import unittest_user_created_by_ui
-from AgentsWorkFlow.Saas.Code.QA.unittest_login_user_by_ui.Integration import unittest_login_user_by_ui
-from AgentsWorkFlow.Saas.Code.QA.unittest_user_checkout_by_ui.Integration import unittest_user_checkout_by_ui
-
-from AgentsWorkFlow.Saas.Code.ProjectManager.Timeline.Integration import CodeRequirementsAndTimeline
-
-from AgentsWorkFlow.Saas.Code.FrontEnd.Index.Integration import CodeIndexFrontEnd
-
-from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_Preproject.Integration import CodeReview_Preproject
-from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_Timeline.Integration import CodeReview_Timeline
-
-
-
-from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_Keys.Integration import CodeReviewKeysAgent
-
-
-
-
-from AgentsWorkFlow.Saas.Code.BackEnd.basic_endpoints.Integration import CodeFlaskBackEnd_basic_endpointsAgent
 from AgentsWorkFlow.Saas.Code.BackEnd.api_create_checkout.Integration import CodeFlaskBackEndapi_create_checkoutAgent
 from AgentsWorkFlow.Saas.Code.BackEnd.api_login.Integration import CodeFlaskBackEndapi_loginAgent
 from AgentsWorkFlow.Saas.Code.BackEnd.api_register.Integration import CodeFlaskBackEndapi_registerAgent
+from AgentsWorkFlow.Saas.Code.BackEnd.basic_endpoints.Integration import CodeFlaskBackEnd_basic_endpointsAgent
 from AgentsWorkFlow.Saas.Code.BackEnd.webhook.Integration import CodeFlaskBackEndwebhookAgent
+
 from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_BackEnd_Endpoints.Integration import CodeBackendEndpointscodereviewAgent
+from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_DevOps_Docker.Integration import CodeReview_DevOps_Docker
+from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_FrontEnd_Html.Integration import CodeReviewFrontEndHtmlAgent
+from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_FrontEnd_JS.Integration import CodeReviewFrontEndJSAgent
+from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_Keys.Integration import CodeReviewKeysAgent
+from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_Preproject.Integration import CodeReview_Preproject
+from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_Timeline.Integration import CodeReview_Timeline
 
-
-from AgentsWorkFlow.Saas.Code.DevOps.DockerFile.Integration import CodeDockerFileAgent
+from AgentsWorkFlow.Saas.Code.DevOps.DeployProjectModeEasy.Integration import DeployProjectModeEasy
 from AgentsWorkFlow.Saas.Code.DevOps.DockerBuild.Integration import CodeDockerBuildAgent
 from AgentsWorkFlow.Saas.Code.DevOps.DockerCompose.Integration import CodeDockerComposeAgent
+from AgentsWorkFlow.Saas.Code.DevOps.DockerFile.Integration import CodeDockerFileAgent
+from AgentsWorkFlow.Saas.Code.DevOps.GitUpload.Integration import CodeUploadGit
 from AgentsWorkFlow.Saas.Code.DevOps.RequirementsTxt.Integration import CodeRequirementstxtAgent
-from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_DevOps_Docker.Integration import CodeReview_DevOps_Docker
+from AgentsWorkFlow.Saas.Code.DevOps.RunBuildProject.Integration import RunBuildProject
 
+from AgentsWorkFlow.Saas.Code.FrontEnd.Checkout.Integration import CodeCheckoutFrontEnd
+from AgentsWorkFlow.Saas.Code.FrontEnd.Index.Integration import CodeIndexFrontEnd
+from AgentsWorkFlow.Saas.Code.FrontEnd.Login.Integration import CodeLoginFrontEnd
+from AgentsWorkFlow.Saas.Code.FrontEnd.NavigationJS.Integration import CodeNavigationJSFrontEnd
+
+from AgentsWorkFlow.Saas.Code.ProductManager.CreateProduct.Integration import CreateProduct
 
 from AgentsWorkFlow.Saas.Code.ProjectManager.Documentation.Modules.Integration import CodeDocumentationModulesAgent
 from AgentsWorkFlow.Saas.Code.ProjectManager.Documentation.Staticjs.Integration import CodeDocumentationStaticjsAgent
 from AgentsWorkFlow.Saas.Code.ProjectManager.Documentation.Technich.Integration import CodeDocumentationTechnichAgent
+from AgentsWorkFlow.Saas.Code.ProjectManager.Keys_env.Integration import CodeFlaskBackEndKeysenvAgent
+from AgentsWorkFlow.Saas.Code.ProjectManager.Keys_fb.Integration import CodeFlaskBackEnd_Keys_fb_STATIC
+from AgentsWorkFlow.Saas.Code.ProjectManager.Timeline.Integration import CodeRequirementsAndTimeline
 
-from AgentsWorkFlow.Saas.Code.DevOps.DeployProjectModeEasy.Integration import DeployProjectModeEasy
+from AgentsWorkFlow.Saas.Code.QA.unittest_login_user_by_ui.Integration import unittest_login_user_by_ui
+from AgentsWorkFlow.Saas.Code.QA.unittest_user_checkout_by_ui.Integration import unittest_user_checkout_by_ui
+from AgentsWorkFlow.Saas.Code.QA.unittest_user_created_by_ui.Integration import unittest_user_created_by_ui
+
+from AgentsWorkFlow.Saas.Decisions.Dashboard_Decision.Integration import CodeFrontEndDecisionDashboard
+from AgentsWorkFlow.Saas.Decisions.TypeProject.Integration import TriageAgent
 
 
 from Keys.keys import *
@@ -153,12 +134,19 @@ def index():
     logger.info(f"WEBHOOK_SECRET{WEBHOOK_SECRET}")
     return render_template('home.html')
 
+@app.route('/chat')
+@login_required
+def chat():
+    if 'user' not in session:
+        return redirect(url_for('login')) 
+    return render_template('chat.html')
+
 @app.route('/dashboard')
 @login_required
 def dashboard():
     if 'user' not in session:
         return redirect(url_for('login')) 
-    return render_template('chat.html')
+    return render_template('dashboard.html')
 
 @app.route('/login')
 def login():
@@ -1144,6 +1132,11 @@ Regra 1 - Caso seja solicitado algum web site que se enquadre no tipo Saas (soft
 Regra 2 - Caso usuario esteja conversando e ou escrevendo apenas converse respondendo nao encaminhe para nenhum agente e nao execute make_httprequest
 
 
+Regra 3 - Caso usuario diga que concluiu a instalacao da extencao Release Share e retornar uma url do projeto
+nao execute make_httprequest e encaminhe para agente 
+
+
+
 
 
             """,
@@ -1733,6 +1726,9 @@ def stripe_webhook():
 
     '''
 
+
+
+
     checkout_payment_button = f"""
 
 document.addEventListener("DOMContentLoaded", function() {{
@@ -1943,33 +1939,6 @@ document.getElementById('register-btn').addEventListener('click', () => {
     
     navigation_js = """
 
-/* navigation.js - Gerencia a navegação via cliques, especificamente para os botões de planos. */
-
-document.addEventListener('DOMContentLoaded', () => {
-// Seleciona os botões de planos
-const basicPlanBtn = document.getElementById('plan-basic');
-const premiumPlanBtn = document.getElementById('plan-premium');
-
-if (!basicPlanBtn) {
-    console.error('Botão do plano Básico não encontrado. Verifique o ID plan-basic.');
-} else {
-    basicPlanBtn.addEventListener('click', () => {
-    // Redireciona para a página de login para o plano gratuito
-    window.location.href = '/login';
-    });
-}
-
-if (!premiumPlanBtn) {
-    console.error('Botão do plano Premium não encontrado. Verifique o ID plan-premium.');
-} else {
-    premiumPlanBtn.addEventListener('click', () => {
-    // Redireciona para a página de checkout com parâmetro do plano premium
-    window.location.href = '/checkout?plan=premium';
-    });
-}
-});
-
-
     """
     
     landing = """
@@ -2153,7 +2122,60 @@ API_BASE_URL="http://127.0.0.1:5000"
 
     '''
 
+    docker_file = f"""
+FROM python:3.12-slim
+RUN apt-get update && \
+    apt-get install -y \
+    git
 
+# Install Node.js 22.x (needed for codex CLI)
+RUN apt-get update && \
+    apt-get install -y curl gnupg ca-certificates && \
+    curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
+    apt-get install -y nodejs && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install codex CLI globally
+RUN npm install -g @openai/codex
+
+WORKDIR /app
+
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+RUN git init /app
+
+# Copiar todos os arquivos do projeto
+COPY . /app
+
+
+
+    """
+   
+
+    docker_compose_file = f"""
+version: '3.8'
+
+services:
+  landingpage:
+    build: .
+    container_name: landingpageapp
+    restart: always
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: >
+      sh -c "python app.py"
+    mem_limit: 500MB
+    cpus: "1.5"
+
+
+    """
+   
+   
+   
     async def generate_response():
         print("🧠 Enviando mensagem ao agente de triagem...")
 
@@ -2169,13 +2191,15 @@ API_BASE_URL="http://127.0.0.1:5000"
 
         # /api/AgentsWorkFlow/Saas/teams/DevOps/RunBuild V
 
-        # /api/AgentsWorkFlow/Saas/teams/DevOps/EasyDeploy 
+        # /api/AgentsWorkFlow/Saas/teams/DevOps/EasyDeploy V
+
+        # /api/AgentsWorkFlow/Saas/teams/DevOps/UploadGit V
 
         # /api/AgentsWorkFlow/Saas/teams/QA 
 
         # /api/AgentsWorkFlow/Saas/teams/ProductManager
 
-        # /api/AgentsWorkFlow/Saas/teams/DevOps/UploadGit
+
 
         
 
@@ -3564,7 +3588,7 @@ def api_AgentsWorkFlow_Saas_teams_Documentation():
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/RunBuild', methods=['POST'])
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))  
-def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
+def api_AgentsWorkFlow_Saas_teams_DevOps_RunBuild():
     data = request.get_json()
     session_id = data.get("session_id")
     user_email = data.get("user_email")
@@ -3639,7 +3663,6 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
     return jsonify({
         "session_id": session_id,
     }), 201
-
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/EasyDeploy', methods=['POST'])
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))  
@@ -3720,6 +3743,96 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
     return jsonify({
         "session_id": session_id,
     }), 201
+
+
+@app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/UploadGit', methods=['POST'])
+@limiter.limit(lambda: dynamic_rate_limit(appcompany))
+def api_AgentsWorkFlow_Saas_teams_DevOps_UploadGit():
+    data = request.get_json()
+    session_id = data.get("session_id")
+    user_email = data.get("user_email")
+    private = data.get("private")
+    githubtoken = data.get("githubtoken")
+    repo_owner = data.get("repo_owner")
+    path_ProjectWeb = data.get("path_ProjectWeb")
+    path_html = data.get("path_html")
+    path_js = data.get("path_js")
+    path_css = data.get("path_css")
+    doc_md = data.get("doc_md")
+    path_Keys = data.get("path_Keys")
+    Keys_path = path_Keys
+    type_stream = data.get("type_stream")
+    prompt_continuous = data.get("prompt_continuous")
+
+
+    usuario, erro = autenticar_usuario(appcompany=appcompany)
+    if erro:
+        return erro
+
+    async def generate_response():
+
+        data = {
+                "session_id": session_id,
+                "user_email": user_email,
+                "prompt_continuous": prompt_continuous,
+            }
+
+        async def _CodeUploadGit_logic(data, appcompany):
+            session_id = data["session_id"]
+            user_email = data["user_email"]
+            agent, _ = CodeUploadGit(session_id, appcompany,
+                                path_ProjectWeb,
+                                path_html,
+                                path_js,
+                                path_css,
+                                doc_md,
+                                Keys_path,
+                                githubtoken,
+                                repo_owner,
+                                private
+                            )
+
+            # retry + fallback
+            for _ in range(3):
+                try:
+                    await process_stream(
+                        type_stream, agent, data["prompt_continuous"],
+                        WEBHOOK_URL, session_id, user_email, "1", appcompany
+                    )
+                    return {"step": "CodeUploadGit", "session_id": session_id}
+                except Exception as e:
+                    if "Error streaming response" in str(e):
+                        continue
+                    raise
+
+            # se falhar 3 vezes, devolve com fallback
+            return {
+                "step": "CodeUploadGit",
+                "session_id": session_id,
+                "fallback": "Erro de stream repetido"
+            }
+
+
+        def run_CodeUploadGit(data, appcompany):
+            return asyncio.run(_CodeUploadGit_logic(data, appcompany))
+
+        results = []
+
+        try:
+            results.append(run_CodeUploadGit(data, appcompany))
+        except Exception as e:
+            traceback.print_exc()
+
+    def runner():
+        asyncio.run(generate_response())
+
+    threading.Thread(target=runner).start()
+    
+    return jsonify({
+        "session_id": session_id,
+    }), 201
+
+
 
 
 
@@ -3928,70 +4041,6 @@ def api_AgentsWorkFlow_Saas_teams_ProductManager():
     return jsonify({
         "session_id": session_id,
     }), 201
-
-@app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/UploadGit', methods=['POST'])
-@limiter.limit(lambda: dynamic_rate_limit(appcompany))
-def api_AgentsWorkFlow_Saas_teams_ProductManager():
-    data = request.get_json()
-    session_id = data.get("session_id")
-    user_email = data.get("user_email")
-    githubtoken = data.get("githubtoken")
-    repo_owner = data.get("repo_owner")
-    path_ProjectWeb = data.get("path_ProjectWeb")
-    path_html = data.get("path_html")
-    path_js = data.get("path_js")
-    path_css = data.get("path_css")
-    doc_md = data.get("doc_md")
-    path_Keys = data.get("path_Keys")
-    Keys_path = path_Keys
-    type_stream = data.get("type_stream")
-    prompt_continuous = data.get("prompt_continuous")
-
-
-    usuario, erro = autenticar_usuario(appcompany=appcompany)
-    if erro:
-        return erro
-
-    async def generate_response():
-
-        agent_CodeUploadGit, _ = CodeUploadGit("session_id", "appcompany",
-                            path_ProjectWeb,
-                            path_html,
-                            path_js,
-                            path_css,
-                            doc_md,
-                            Keys_path,
-                            githubtoken,
-                            repo_owner,
-
-                        )
-        # # Run one agents 
-        # result = Runner.run_sync(agent_CodeUploadGit, prompt_continuous, max_turns=300)
-        # print(f"🤖 Resposta do sistema 18:\n{result.final_output}")
-
-
-        await process_stream_and_save_history(
-            type_stream,
-            agent_CodeUploadGit,
-            prompt_continuous,
-            WEBHOOK_URL,
-            session_id,
-            user_email,
-            "18",
-            appcompany
-            )
-
-    def runner():
-        asyncio.run(generate_response())
-
-    threading.Thread(target=runner).start()
-    
-    return jsonify({
-        "session_id": session_id,
-    }), 201
-
-
-
 
 
 
