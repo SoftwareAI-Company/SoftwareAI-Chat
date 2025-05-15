@@ -8,6 +8,7 @@ from softwareai_engine_library.EngineProcess.EgetMetadataAgent import *
 #########################################
 from softwareai_engine_library.EngineProcess.EgetTools import *
 #########################################
+<<<<<<< HEAD
 from AgentsWorkFlow.Saas.Code.BackEnd.api_create_checkout.Integration import CodeFlaskBackEndapi_create_checkoutAgent
 from AgentsWorkFlow.Saas.Code.BackEnd.api_login.Integration import CodeFlaskBackEndapi_loginAgent
 from AgentsWorkFlow.Saas.Code.BackEnd.api_register.Integration import CodeFlaskBackEndapi_registerAgent
@@ -50,6 +51,38 @@ from AgentsWorkFlow.Saas.Code.QA.unittest_user_created_by_ui.Integration import 
 
 from AgentsWorkFlow.Saas.Decisions.Dashboard_Decision.Integration import CodeFrontEndDecisionDashboard
 from AgentsWorkFlow.Saas.Decisions.TypeProject.Integration import TriageAgent
+=======
+
+
+from AgentsWorkFlow.Saas.Decisions.TypeProject.Integration import TriageAgent
+from AgentsWorkFlow.Saas.Code.FrontEnd.Login.Integration import CodeLoginFrontEnd
+from AgentsWorkFlow.Saas.Code.BackEnd.basic_endpoints.Integration import CodeFlaskBackEnd_basic_endpointsAgent
+from AgentsWorkFlow.Saas.Code.BackEnd.api_create_checkout.Integration import CodeFlaskBackEndapi_create_checkoutAgent
+from AgentsWorkFlow.Saas.Code.BackEnd.Keys_fb.Integration import CodeFlaskBackEnd_Keys_fb_STATIC
+from AgentsWorkFlow.Saas.Decisions.Dashboard_Decision.Integration import CodeFrontEndDecisionDashboard
+from AgentsWorkFlow.Saas.Code.DevOps.DockerFile.Integration import CodeDockerFileAgent
+from AgentsWorkFlow.Saas.Code.DevOps.DockerBuild.Integration import CodeDockerBuildAgent
+from AgentsWorkFlow.Saas.Code.ProjectManager.Documentation.Modules.Integration import CodeDocumentationModulesAgent
+from AgentsWorkFlow.Saas.Code.DevOps.Git.Integration import CodeUploadGit
+from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_BackEnd_Endpoints.Integration import CodeBackendEndpointscodereviewAgent
+from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_FrontEnd_JS.Integration import CodeReviewFrontEndJSAgent
+from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_FrontEnd_Html.Integration import CodeReviewFrontEndHtmlAgent
+from AgentsWorkFlow.Saas.Code.ProductManager.CreateProduct.Integration import CreateProduct
+from AgentsWorkFlow.Saas.Code.DevOps.RunBuildProject.Integration import RunBuildProject
+from AgentsWorkFlow.Saas.Code.BackEnd.Keys_env.Integration import CodeFlaskBackEndKeysenvAgent
+
+from AgentsWorkFlow.Saas.Code.QA.unittest_user_created_by_ui.Integration import unittest_user_created_by_ui
+from AgentsWorkFlow.Saas.Code.QA.unittest_login_user_by_ui.Integration import unittest_login_user_by_ui
+from AgentsWorkFlow.Saas.Code.QA.unittest_user_checkout_by_ui.Integration import unittest_user_checkout_by_ui
+
+from AgentsWorkFlow.Saas.Code.ProjectManager.Timeline.Integration import CodeRequirementsAndTimeline
+
+from AgentsWorkFlow.Saas.Code.FrontEnd.Index.Integration import CodeIndexFrontEnd
+
+from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_Preproject.Integration import CodeReview_Preproject
+from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_Timeline.Integration import CodeReview_Timeline
+
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
 
 from Keys.keys import *
@@ -134,6 +167,7 @@ def index():
     logger.info(f"WEBHOOK_SECRET{WEBHOOK_SECRET}")
     return render_template('home.html')
 
+<<<<<<< HEAD
 @app.route('/chat')
 @login_required
 def chat():
@@ -141,12 +175,18 @@ def chat():
         return redirect(url_for('login')) 
     return render_template('chat.html')
 
+=======
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 @app.route('/dashboard')
 @login_required
 def dashboard():
     if 'user' not in session:
         return redirect(url_for('login')) 
+<<<<<<< HEAD
     return render_template('dashboard.html')
+=======
+    return render_template('chat.html')
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
 @app.route('/login')
 def login():
@@ -1132,11 +1172,14 @@ Regra 1 - Caso seja solicitado algum web site que se enquadre no tipo Saas (soft
 Regra 2 - Caso usuario esteja conversando e ou escrevendo apenas converse respondendo nao encaminhe para nenhum agente e nao execute make_httprequest
 
 
+<<<<<<< HEAD
 Regra 3 - Caso usuario diga que concluiu a instalacao da extencao Release Share e retornar uma url do projeto
 nao execute make_httprequest e encaminhe para agente 
 
 
 
+=======
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
 
             """,
@@ -1238,7 +1281,11 @@ def index():
 # Rota para a página de Login
 @app.route('/login')
 def login():
+<<<<<<< HEAD
     return render_template('login.html')
+=======
+    return render_template('loginAndRegistrer.html')
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     '''
 
     dashboard = '''
@@ -1726,9 +1773,12 @@ def stripe_webhook():
 
     '''
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     checkout_payment_button = f"""
 
 document.addEventListener("DOMContentLoaded", function() {{
@@ -1939,6 +1989,36 @@ document.getElementById('register-btn').addEventListener('click', () => {
     
     navigation_js = """
 
+<<<<<<< HEAD
+=======
+/* navigation.js - Gerencia a navegação via cliques, especificamente para os botões de planos. */
+
+document.addEventListener('DOMContentLoaded', () => {
+// Seleciona os botões de planos
+const basicPlanBtn = document.getElementById('plan-basic');
+const premiumPlanBtn = document.getElementById('plan-premium');
+
+if (!basicPlanBtn) {
+    console.error('Botão do plano Básico não encontrado. Verifique o ID plan-basic.');
+} else {
+    basicPlanBtn.addEventListener('click', () => {
+    // Redireciona para a página de login para o plano gratuito
+    window.location.href = '/login';
+    });
+}
+
+if (!premiumPlanBtn) {
+    console.error('Botão do plano Premium não encontrado. Verifique o ID plan-premium.');
+} else {
+    premiumPlanBtn.addEventListener('click', () => {
+    // Redireciona para a página de checkout com parâmetro do plano premium
+    window.location.href = '/checkout?plan=premium';
+    });
+}
+});
+
+
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     """
     
     landing = """
@@ -2122,6 +2202,7 @@ API_BASE_URL="http://127.0.0.1:5000"
 
     '''
 
+<<<<<<< HEAD
     docker_file = f"""
 FROM python:3.12-slim
 RUN apt-get update && \
@@ -2200,6 +2281,31 @@ services:
         # /api/AgentsWorkFlow/Saas/teams/ProductManager
 
 
+=======
+
+    async def generate_response():
+        print("🧠 Enviando mensagem ao agente de triagem...")
+
+        # /api/AgentsWorkFlow/Saas/teams/ProjectManager
+
+        # /api/AgentsWorkFlow/Saas/teams/FrontEnd
+
+        # /api/AgentsWorkFlow/Saas/teams/BackEnd
+
+        # /api/AgentsWorkFlow/Saas/teams/DevOps/Docker
+
+        # /api/AgentsWorkFlow/Saas/teams/Documentation
+
+        # /api/AgentsWorkFlow/Saas/teams/CodeReview
+
+        # /api/AgentsWorkFlow/Saas/teams/DevOps/EasyDeploy
+
+        # /api/AgentsWorkFlow/Saas/teams/QA
+
+        # /api/AgentsWorkFlow/Saas/teams/ProductManager
+
+        # /api/AgentsWorkFlow/Saas/teams/DevOps/UploadGit
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
         
 
@@ -2229,7 +2335,11 @@ services:
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/ProjectManager', methods=['POST'])
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))
+<<<<<<< HEAD
 def api_AgentsWorkFlow_Saas_teams_ProjectManager(): 
+=======
+def api_AgentsWorkFlow_Saas_teams_ProjectManager():
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     data = request.get_json()
     session_id = data.get("session_id")
     user_email = data.get("user_email")
@@ -2249,6 +2359,7 @@ def api_AgentsWorkFlow_Saas_teams_ProjectManager():
         return erro
 
     async def generate_response():
+<<<<<<< HEAD
 
 
         async def _project_manager_logic(data, appcompany):
@@ -2410,6 +2521,104 @@ def api_AgentsWorkFlow_Saas_teams_ProjectManager():
             results.append(run_code_review_timeline(data, appcompany))
         except Exception as e:
             traceback.print_exc()
+=======
+        # Run 4 agents 
+        agent_TriageAgent = TriageAgent(
+            session_id,
+            user_email,
+            path_ProjectWeb,
+            path_html,
+            path_js,
+            path_css,
+            doc_md,
+            path_Keys,
+
+            )
+
+        await process_stream_and_save_history(
+            type_stream,
+            agent_TriageAgent,
+            user_message,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "1",
+            appcompany
+            )
+        
+        # Run 1 agents 
+        agent_CodeReview_Preproject, _ = CodeReview_Preproject(
+            "session_id",
+            "user_email",
+            path_ProjectWeb,
+            path_html,
+            path_js,
+            path_css,
+            doc_md,
+            path_Keys,
+
+            )
+
+        await process_stream_and_save_history(
+            type_stream,
+            agent_CodeReview_Preproject,
+            user_message,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "agent_CodeReview_Preproject",
+            appcompany
+            )
+
+
+
+        # Run 1 agents 
+        agent_CodeRequirementsAndTimeline, _ = CodeRequirementsAndTimeline(
+            session_id,
+            user_email,
+            path_ProjectWeb,
+            path_html,
+            path_js,
+            path_css,
+            doc_md,
+            Keys_path,
+            )
+
+        await process_stream_and_save_history(
+            type_stream,
+            agent_CodeRequirementsAndTimeline,
+            prompt_continuous,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "agent_CodeRequirementsAndTimeline",
+            appcompany
+            )
+
+
+        # Run 1 agents 
+        agent_CodeReview_Timeline, _ = CodeReview_Timeline(
+            session_id,
+            user_email,
+            path_ProjectWeb,
+            path_html,
+            path_js,
+            path_css,
+            doc_md,
+            Keys_path,
+            )
+
+        await process_stream_and_save_history(
+            type_stream,
+            agent_CodeReview_Timeline,
+            prompt_continuous,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "agent_CodeReview_Timeline",
+            appcompany
+            )
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
 
     def runner():
@@ -2421,9 +2630,14 @@ def api_AgentsWorkFlow_Saas_teams_ProjectManager():
         "session_id": session_id,
     }), 201
 
+<<<<<<< HEAD
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/FrontEnd', methods=['POST'])
 @limiter.limit(lambda: dynamic_rate_limit(appcompany)) 
+=======
+@app.route('/api/AgentsWorkFlow/Saas/teams/FrontEnd', methods=['POST'])
+@limiter.limit(lambda: dynamic_rate_limit(appcompany))
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 def api_AgentsWorkFlow_Saas_teams_FrontEnd():
     data = request.get_json()
     session_id = data.get("session_id")
@@ -2439,9 +2653,12 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
     path_Keys = data.get("path_Keys")
     Keys_path = path_Keys
     type_stream = data.get("type_stream")
+<<<<<<< HEAD
     user_code_init_env = data.get("user_code_init_env")
     firebase_db_url = data.get("firebase_db_url")
     user_credentials = data.get("user_credentials")
+=======
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     prompt_continuous = data.get("prompt_continuous")
 
     usuario, erro = autenticar_usuario(appcompany=appcompany)
@@ -2449,6 +2666,7 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
         return erro
 
     async def generate_response():
+<<<<<<< HEAD
 
 
         async def _CodeIndexFrontEnd_logic(data, appcompany):
@@ -2490,6 +2708,32 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
             user_email         = data["user_email"]
             prompt_continuous  = data.get("prompt_continuous", "")
             agent, _ = CodeLoginFrontEnd(
+=======
+        # Run 1 agents
+        agent_CodeIndexFrontEnd, _ = CodeIndexFrontEnd(
+            session_id,
+            user_email,
+            path_ProjectWeb,
+            path_html,
+            path_js,
+            path_css,
+            doc_md,
+            Keys_path,
+            )
+
+        await process_stream_and_save_history(
+            type_stream,
+            agent_CodeIndexFrontEnd,
+            prompt_continuous,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "agent_CodeIndexFrontEnd",
+            appcompany
+            )
+
+        agent_CodeLoginFrontEnd, _ = CodeLoginFrontEnd(
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
                                     "", 
                                     "",
                                     path_ProjectWeb,
@@ -2499,6 +2743,7 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
                                     doc_md,
                                     Keys_path,
                                     script_base_login_js,
+<<<<<<< HEAD
         
 
                                 )
@@ -2600,6 +2845,27 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
             user_email        = data["user_email"]
             prompt_continuous = data.get("prompt_continuous", "")
             agent, _ = CodeFrontEndDecisionDashboard(
+=======
+                                    checkout_payment_button,
+                                    checkout_payment_selected,
+
+                                )
+        # # Run 3 agents 
+
+        await process_stream_and_save_history(
+            type_stream,
+            agent_CodeLoginFrontEnd,
+            prompt_continuous,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "2",
+            appcompany
+            )
+
+
+        agent_CodeFrontEndDecisionDashboard, _ = CodeFrontEndDecisionDashboard(
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
                                     "", 
                                     "",
                                     path_ProjectWeb,
@@ -2608,6 +2874,7 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
                                     path_css,
                                     doc_md,
                                     Keys_path,
+<<<<<<< HEAD
                         )
 
 
@@ -2827,6 +3094,21 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
             results.append(run_CodeReviewFrontEndHtmlAgent(data, appcompany))
         except Exception as e:
             traceback.print_exc()
+=======
+
+                                )
+    
+        await process_stream_and_save_history(
+            type_stream,
+            agent_CodeFrontEndDecisionDashboard,
+            prompt_continuous,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "6",
+            appcompany
+            )
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
 
     def runner():
@@ -2839,12 +3121,21 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
     }), 201
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/BackEnd', methods=['POST'])
+<<<<<<< HEAD
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))  
+=======
+@limiter.limit(lambda: dynamic_rate_limit(appcompany))
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 def api_AgentsWorkFlow_Saas_teams_BackEnd():
     data = request.get_json()
     session_id = data.get("session_id")
     user_email = data.get("user_email")
     basic_endpoints = data.get("basic_endpoints")
+<<<<<<< HEAD
+=======
+    user_code_init_env = data.get("user_code_init_env")
+    user_credentials = data.get("user_credentials")
+    firebase_db_url = data.get("firebase_db_url")
     path_ProjectWeb = data.get("path_ProjectWeb")
     path_html = data.get("path_html")
     path_js = data.get("path_js")
@@ -2853,6 +3144,129 @@ def api_AgentsWorkFlow_Saas_teams_BackEnd():
     path_Keys = data.get("path_Keys")
     Keys_path = path_Keys
     type_stream = data.get("type_stream")
+    prompt_continuous = data.get("prompt_continuous")
+
+
+    usuario, erro = autenticar_usuario(appcompany=appcompany)
+    if erro:
+        return erro
+
+    async def generate_response():
+
+        agent_CodeFlaskBackEnd_basic_endpointsAgent, _ = CodeFlaskBackEnd_basic_endpointsAgent(                                
+                                    "session_id", 
+                                    "appcompany",
+                                    path_ProjectWeb,
+                                    path_html,
+                                    path_js,
+                                    path_css,
+                                    doc_md,
+                                    Keys_path,
+                                    basic_endpoints
+
+                        )
+        # # Run 3 agents 
+        # result = Runner.run_sync(agent_CodeFlaskBackEndSprint6Agent, prompt_continuous, max_turns=300)
+        # print(f"🤖 Resposta do sistema 3:\n{result.final_output}")
+
+        await process_stream_and_save_history(
+            type_stream,
+            agent_CodeFlaskBackEnd_basic_endpointsAgent,
+            prompt_continuous,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "3",
+            appcompany
+            )
+        
+
+        agent_CodeFlaskBackEndapi_create_checkoutAgent, _ = CodeFlaskBackEndapi_create_checkoutAgent(                                
+                                    "session_id", 
+                                    "appcompany",
+                                    path_ProjectWeb,
+                                    path_html,
+                                    path_js,
+                                    path_css,
+                                    doc_md,
+                                    Keys_path,
+
+                        )
+        # # Run 3 agents 
+        # result = Runner.run_sync(agent_CodeFlaskBackEndSprint9Agent, prompt_continuous, max_turns=300)
+        # print(f"🤖 Resposta do sistema 4:\n{result.final_output}")
+
+        await process_stream_and_save_history(
+            type_stream,
+            agent_CodeFlaskBackEndapi_create_checkoutAgent,
+            prompt_continuous,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "4",
+            appcompany
+            )
+        
+
+        agent_CodeFlaskBackEndKeysenvAgent, _ = CodeFlaskBackEndKeysenvAgent("session_id", "appcompany",
+                                    path_ProjectWeb,
+                                    path_html,
+                                    path_js,
+                                    path_css,
+                                    doc_md,
+                                    Keys_path,
+                                    user_code_init_env,
+                                )
+        # # Run 1 agents 
+        # result = Runner.run_sync(agent_CodeFlaskBackEndKeysenvAgent, prompt_continuous, max_turns=300)
+        # print(f"🤖 Resposta do sistema 5:\n{result.final_output}")
+
+        await process_stream_and_save_history(
+            type_stream,
+            agent_CodeFlaskBackEndKeysenvAgent,
+            prompt_continuous,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "5",
+            appcompany
+            )
+        
+        CodeFlaskBackEnd_Keys_fb_STATIC("", "",
+                                    user_credentials,
+                                    firebase_db_url
+                                    )
+        print(f"🤖 Sistema de credenciais firebase executado")
+
+
+
+
+    def runner():
+        asyncio.run(generate_response())
+
+    threading.Thread(target=runner).start()
+    
+    return jsonify({
+        "session_id": session_id,
+    }), 201
+
+@app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/Docker', methods=['POST'])
+@limiter.limit(lambda: dynamic_rate_limit(appcompany))
+def api_AgentsWorkFlow_Saas_teams_DevOps():
+    data = request.get_json()
+    session_id = data.get("session_id")
+    user_email = data.get("user_email")
+    basic_endpoints = data.get("basic_endpoints")
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
+    path_ProjectWeb = data.get("path_ProjectWeb")
+    path_html = data.get("path_html")
+    path_js = data.get("path_js")
+    path_css = data.get("path_css")
+    doc_md = data.get("doc_md")
+    path_Keys = data.get("path_Keys")
+    Keys_path = path_Keys
+    type_stream = data.get("type_stream")
+<<<<<<< HEAD
     createcheckout = data.get("createcheckout")
     api_register = data.get("api_register")
     api_login = data.get("api_login")
@@ -3185,6 +3599,8 @@ def api_AgentsWorkFlow_Saas_teams_DevOps():
     path_Keys = data.get("path_Keys")
     Keys_path = path_Keys
     type_stream = data.get("type_stream")
+=======
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     prompt_continuous = data.get("prompt_continuous")
 
 
@@ -3195,6 +3611,7 @@ def api_AgentsWorkFlow_Saas_teams_DevOps():
     async def generate_response():
 
 
+<<<<<<< HEAD
         data = {
                 "session_id": session_id,
                 "user_email": user_email,
@@ -3409,6 +3826,56 @@ def api_AgentsWorkFlow_Saas_teams_DevOps():
         except Exception as e:
             traceback.print_exc()
 
+=======
+        agent_CodeDockerFileAgent, _ = CodeDockerFileAgent(
+                                    "", 
+                                    "",
+                                    path_ProjectWeb,
+                                    path_html,
+                                    path_js,
+                                    path_css,
+                                    doc_md,
+                                    Keys_path,
+
+                                )
+        # result = Runner.run_sync(agent_CodeDockerFileAgent, prompt_continuous, max_turns=300)
+        # print(f"🤖 Resposta do sistema 7:\n{result.final_output}")
+
+        await process_stream_and_save_history(
+            type_stream,
+            agent_CodeDockerFileAgent,
+            prompt_continuous,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "7",
+            appcompany
+            )
+        
+
+
+        agent_CodeDockerBuildAgent, _ = CodeDockerBuildAgent("session_id", "appcompany",
+                            path_ProjectWeb,
+                            path_html,
+                            path_js,
+                            path_css,
+                            doc_md,
+                            Keys_path,
+                        )
+        # result = Runner.run_sync(agent_CodeDockerBuildAgent, prompt_continuous, max_turns=300)
+        # print(f"🤖 Resposta do sistema 8:\n{result.final_output}")
+
+        await process_stream_and_save_history(
+            type_stream,
+            agent_CodeDockerBuildAgent,
+            prompt_continuous,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "8",
+            appcompany
+            )
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
         
     def runner():
         asyncio.run(generate_response())
@@ -3420,7 +3887,11 @@ def api_AgentsWorkFlow_Saas_teams_DevOps():
     }), 201
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/Documentation', methods=['POST'])
+<<<<<<< HEAD
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))  
+=======
+@limiter.limit(lambda: dynamic_rate_limit(appcompany))
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 def api_AgentsWorkFlow_Saas_teams_Documentation():
     data = request.get_json()
     session_id = data.get("session_id")
@@ -3441,6 +3912,7 @@ def api_AgentsWorkFlow_Saas_teams_Documentation():
         return erro
 
     async def generate_response():
+<<<<<<< HEAD
 
         data = {
                 "session_id": session_id,
@@ -3655,6 +4127,30 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_RunBuild():
         except Exception as e:
             traceback.print_exc()
 
+=======
+        agent_CodeDocumentationModulesAgent, _ = CodeDocumentationModulesAgent(
+                            session_id, 
+                            appcompany,
+                            path_ProjectWeb,
+                            path_html,
+                            path_js,
+                            path_css,
+                            doc_md,
+                            Keys_path,
+                        )
+
+        await process_stream_and_save_history(
+            type_stream,
+            agent_CodeDocumentationModulesAgent,
+            prompt_continuous,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "9",
+            appcompany
+            )
+        
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     def runner():
         asyncio.run(generate_response())
 
@@ -3665,7 +4161,11 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_RunBuild():
     }), 201
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/EasyDeploy', methods=['POST'])
+<<<<<<< HEAD
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))  
+=======
+@limiter.limit(lambda: dynamic_rate_limit(appcompany))
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
     data = request.get_json()
     session_id = data.get("session_id")
@@ -3686,6 +4186,7 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
 
     async def generate_response():
 
+<<<<<<< HEAD
         async def _DeployProjectModeEasy_logic(data, appcompany):
             session_id         = data["session_id"]
             user_email         = data["user_email"]
@@ -3734,6 +4235,31 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
         except Exception as e:
             traceback.print_exc()
 
+=======
+        agent_RunBuildProject, _ = RunBuildProject("session_id", "appcompany",
+                            path_ProjectWeb,
+                            path_html,
+                            path_js,
+                            path_css,
+                            doc_md,
+                            Keys_path,
+                        )
+        # # Run 3 agents 
+        # result = Runner.run_sync(agent_, prompt_continuous, max_turns=300)
+        # print(f"🤖 Resposta do sistema 13:\n{result.final_output}")
+
+
+        await process_stream_and_save_history(
+            type_stream,
+            agent_RunBuildProject,
+            prompt_continuous,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "13",
+            appcompany
+            )
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
     def runner():
         asyncio.run(generate_response())
@@ -3744,6 +4270,7 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
         "session_id": session_id,
     }), 201
 
+<<<<<<< HEAD
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/UploadGit', methods=['POST'])
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))
@@ -3837,6 +4364,8 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_UploadGit():
 
 
 
+=======
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 @app.route('/api/AgentsWorkFlow/Saas/teams/QA', methods=['POST'])
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))
 def api_AgentsWorkFlow_Saas_teams_QA():
@@ -4042,6 +4571,73 @@ def api_AgentsWorkFlow_Saas_teams_ProductManager():
         "session_id": session_id,
     }), 201
 
+<<<<<<< HEAD
+=======
+@app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/UploadGit', methods=['POST'])
+@limiter.limit(lambda: dynamic_rate_limit(appcompany))
+def api_AgentsWorkFlow_Saas_teams_ProductManager():
+    data = request.get_json()
+    session_id = data.get("session_id")
+    user_email = data.get("user_email")
+    githubtoken = data.get("githubtoken")
+    repo_owner = data.get("repo_owner")
+    path_ProjectWeb = data.get("path_ProjectWeb")
+    path_html = data.get("path_html")
+    path_js = data.get("path_js")
+    path_css = data.get("path_css")
+    doc_md = data.get("doc_md")
+    path_Keys = data.get("path_Keys")
+    Keys_path = path_Keys
+    type_stream = data.get("type_stream")
+    prompt_continuous = data.get("prompt_continuous")
+
+
+    usuario, erro = autenticar_usuario(appcompany=appcompany)
+    if erro:
+        return erro
+
+    async def generate_response():
+
+        agent_CodeUploadGit, _ = CodeUploadGit("session_id", "appcompany",
+                            path_ProjectWeb,
+                            path_html,
+                            path_js,
+                            path_css,
+                            doc_md,
+                            Keys_path,
+                            githubtoken,
+                            repo_owner,
+
+                        )
+        # # Run one agents 
+        # result = Runner.run_sync(agent_CodeUploadGit, prompt_continuous, max_turns=300)
+        # print(f"🤖 Resposta do sistema 18:\n{result.final_output}")
+
+
+        await process_stream_and_save_history(
+            type_stream,
+            agent_CodeUploadGit,
+            prompt_continuous,
+            WEBHOOK_URL,
+            session_id,
+            user_email,
+            "18",
+            appcompany
+            )
+
+    def runner():
+        asyncio.run(generate_response())
+
+    threading.Thread(target=runner).start()
+    
+    return jsonify({
+        "session_id": session_id,
+    }), 201
+
+
+
+
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
 
 
