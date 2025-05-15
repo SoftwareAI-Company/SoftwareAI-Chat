@@ -1,10 +1,8 @@
 
-version: '3.8'
 services:
   softwareai_app:
     build: .
-    volumes:
-      - .:/app  
+    working_dir: /app             # ← add this
     restart: always
     ports:
       - "829:829"

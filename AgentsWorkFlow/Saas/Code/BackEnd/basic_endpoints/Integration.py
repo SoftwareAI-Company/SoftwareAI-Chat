@@ -6,11 +6,7 @@ from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
 from pydantic import BaseModel
 
 from modules.modules import *
-from modules.Egetoolsv2 import *
-from modules.EgetMetadataAgent import *
 
-
-from AgentsWorkFlow.Saas.Code.BackEnd.api_register.Integration import CodeFlaskBackEndSprint7Agent
 
 class FrontEndData(BaseModel):
     FrontEndContent: str
@@ -32,17 +28,6 @@ def CodeFlaskBackEnd_basic_endpointsAgent(
     # Trocar para o diretório do projeto
     os.chdir(path_ProjectWeb)
 
-    # Inicializa o agente de Sprint7 e o objeto de handoff
-    agent_, handoff_obj_CodeFlaskBackEndSprint7Agent = CodeFlaskBackEndSprint7Agent(
-        session_id,
-        appcompany,
-        path_ProjectWeb,
-        path_html,
-        path_js,
-        path_css,
-        doc_md,
-        Keys_path,
-    )
 
     # Carrega metadados do agente básico
     agent_ids = ['basic_endpoints']
@@ -69,7 +54,7 @@ def CodeFlaskBackEnd_basic_endpointsAgent(
         instructions=f"""{RECOMMENDED_PROMPT_PREFIX}\n{instruction_formatado}""",
         model=str(model),
         tools=Tools_Name_dict,
-        handoffs=[handoff_obj_CodeFlaskBackEndSprint7Agent],
+        # handoffs=[handoff_obj_CodeFlaskBackEndSprint7Agent],
     )
 
     # Define o handoff para front-end

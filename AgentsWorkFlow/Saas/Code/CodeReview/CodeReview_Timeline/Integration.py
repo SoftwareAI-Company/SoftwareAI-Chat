@@ -24,7 +24,13 @@ def CodeReview_Timeline(session_id, appcompany,
                         Keys_path):
     os.chdir(path_ProjectWeb)
 
-    agent_, handoff_CodeRequirementsAndTimeline = CodeRequirementsAndTimeline("","")
+    agent_, handoff_CodeRequirementsAndTimeline = CodeRequirementsAndTimeline(session_id, appcompany,
+                        path_ProjectWeb,
+                        path_html,
+                        path_js,
+                        path_css,
+                        doc_md,
+                        Keys_path)
 
     agent_ids = ['CodeReview_Timeline']
     agents_metadata = EgetMetadataAgent(agent_ids)

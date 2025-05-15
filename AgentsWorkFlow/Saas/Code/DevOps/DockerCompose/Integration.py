@@ -6,12 +6,6 @@ from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
 from pydantic import BaseModel
 
 from modules.modules import *
-from modules.Egetoolsv2 import *
-from modules.EgetMetadataAgent import *
-
-
-
-from AgentsWorkFlow.Saas.Code.DevOps.RequirementsTxt.Integration import CodeRequirementstxtAgent
 
 
 class FrontEndData(BaseModel):
@@ -19,9 +13,7 @@ class FrontEndData(BaseModel):
 
 async def on_handoff(ctx: RunContextWrapper[None], input_data: FrontEndData):
     print(f"CodeDockerComposeAgent: {input_data.FrontEndContent}")
-    # response = requests.post("http://localhost:5000/agent/refund", json={"input": input_data.reason})
-    # reply = response.json().get("reply")
-              
+
 def CodeDockerComposeAgent(session_id, appcompany,
                         path_ProjectWeb,
                         path_html,
@@ -29,49 +21,10 @@ def CodeDockerComposeAgent(session_id, appcompany,
                         path_css,
                         doc_md,
                         Keys_path,
+                        docker_compose
                     ):
 
     os.chdir(path_ProjectWeb)
-
-    agent_, handoff_obj_CodeRequirementstxtAgent = CodeRequirementstxtAgent(session_id, appcompany,
-                        path_ProjectWeb,
-                        path_html,
-                        path_js,
-                        path_css,
-                        doc_md,
-                        Keys_path,
-                    )
-
-    docker_compose = """
-
-version: '3.8'
-
-services:
-
-  landingpage:
-    build: .
-    container_name: landingpageapp
-    restart: always
-    ports:
-      - "portaobtida:portaobtida"
-    volumes:
-      - .:/app
-      - /var/run/docker.sock:/var/run/docker.sock  
-    command: > 
-      sh -c "python app.py"
-    mem_limit: 500MB
-    cpus: "1.5"
-    networks:
-      - rede_externa
-
-networks:
-  rede_externa:
-    external: true
-
-
-
-
-    """
 
 
 
@@ -91,12 +44,11 @@ networks:
 
     agent = Agent(
         name=str(name),
-        instructions=f"""{RECOMMENDED_PROMPT_PREFIX}\n
+        instructions=f"""
         {instruction_formatado}        
         """,
         model=str(model),
         tools=Tools_Name_dict,
-        handoffs=[handoff_obj_CodeRequirementstxtAgent],
     )
 
 

@@ -8,16 +8,11 @@ from pydantic import BaseModel
 from modules.modules import *
 
 
-from AgentsWorkFlow.Saas.Code.ProjectManager.Documentation.Staticjs.Integration import CodeDocumentationStaticjsAgent
-
-
 class FrontEndData(BaseModel):
     FrontEndContent: str
 
 async def on_handoff(ctx: RunContextWrapper[None], input_data: FrontEndData):
     print(f"CodeDocumentationModulesAgent: {input_data.FrontEndContent}")
-    # response = requests.post("http://localhost:5000/agent/refund", json={"input": input_data.reason})
-    # reply = response.json().get("reply")
               
 def CodeDocumentationModulesAgent(
                             session_id, 
@@ -32,17 +27,6 @@ def CodeDocumentationModulesAgent(
    
     os.chdir(path_ProjectWeb)
 
-
-    agent_, handoff_obj_CodeDocumentationStaticjsAgent = CodeDocumentationStaticjsAgent(
-                            session_id, 
-                            appcompany,
-                            path_ProjectWeb,
-                            path_html,
-                            path_js,
-                            path_css,
-                            doc_md,
-                            Keys_path,
-                        )
 
     agent_ids = ['Modules']
     agents_metadata = EgetMetadataAgent(agent_ids)
@@ -59,12 +43,12 @@ def CodeDocumentationModulesAgent(
     instruction_formatado = format_instruction(instruction, locals())
     agent = Agent(
         name=str(name),
-        instructions=f"""{RECOMMENDED_PROMPT_PREFIX}\n
+        instructions=f"""
         {instruction_formatado}        
         """,
         model=str(model),
         tools=Tools_Name_dict,
-        handoffs=[handoff_obj_CodeDocumentationStaticjsAgent],
+        # handoffs=[handoff_obj_CodeDocumentationStaticjsAgent],
     )
 
 

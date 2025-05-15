@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     linux-headers-amd64 \
     libssl-dev \
  && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y libgl1-mesa-glx
+RUN apt-get update && apt-get install -y libgl1
 
 # Baixar e instalar o Ngrok
 RUN curl -s -o /tmp/ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz && \

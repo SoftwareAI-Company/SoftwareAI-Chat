@@ -7,8 +7,6 @@ from pydantic import BaseModel
 
 from modules.modules import *
 
-from AgentsWorkFlow.Saas.Code.ProductManager.CreateWebhook.Integration import CreateWebhook
-
 
 class FrontEndData(BaseModel):
     FrontEndContent: str
@@ -25,19 +23,8 @@ def DeployProjectModeEasy(session_id, appcompany,
                         doc_md,
                         Keys_path,
                     ):
-
+    path_Keys = Keys_path
     os.chdir(path_ProjectWeb)
-
-   
-    _, handoff_CreateWebhook = CreateWebhook(session_id, appcompany,
-                        path_ProjectWeb,
-                        path_html,
-                        path_js,
-                        path_css,
-                        doc_md,
-                        Keys_path,
-                    )
-    
 
     agent_ids = ['DeployProjectModeEasy']
     agents_metadata = EgetMetadataAgent(agent_ids)
@@ -55,12 +42,12 @@ def DeployProjectModeEasy(session_id, appcompany,
 
     agent = Agent(
         name=str(name),
-        instructions=f"""{RECOMMENDED_PROMPT_PREFIX}\n
+        instructions=f"""
         {instruction_formatado}        
         """,
         model=str(model),
         tools=Tools_Name_dict,
-        handoffs=[handoff_CreateWebhook],
+        # handoffs=[_CreateWebhook],
     )
 
 

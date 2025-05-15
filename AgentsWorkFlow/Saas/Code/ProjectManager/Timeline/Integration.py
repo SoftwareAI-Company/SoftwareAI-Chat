@@ -36,16 +36,21 @@ def CodeRequirementsAndTimeline(
     agent_ids = ['Timeline']
     agents_metadata = EgetMetadataAgent(agent_ids)
 
-    name = agents_metadata['Timeline']["name"]
-    model = agents_metadata['Timeline']["model"]
-    instruction = agents_metadata['Timeline']["instruction"]
-    tools = agents_metadata['Timeline']["tools"]
 
-    Tools_Name_dict = Egetoolsv2(list(tools))
+    name = agents_metadata[f'{agent_ids[0]}']["name"]
+    model = agents_metadata[f'{agent_ids[0]}']["model"]
+    instruction = agents_metadata[f'{agent_ids[0]}']["instruction"]
+    try:
+      tools = agents_metadata[f'{agent_ids[0]}']["tools"]
+      Tools_Name_dict = Egetoolsv2(list(tools))
+    except:
+      pass
+
+    instruction_formatado = format_instruction(instruction, locals())
     agent = Agent(
         name=str(name),
-        instructions=f"""{RECOMMENDED_PROMPT_PREFIX}\n
-        {instruction}        
+        instructions=f"""
+        {instruction_formatado}        
         """,
         model=str(model),
         tools=Tools_Name_dict,
