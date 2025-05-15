@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Flask
 flask-cors
 firebase-admin
@@ -13,3 +14,20 @@ matplotlib
 typing-extensions
 PyYAML
 requests
+=======
+Flask
+flask-cors
+firebase-admin
+user-agents
+waitress
+python-dotenv
+stripe
+flask-limiter
+flask-dance
+openai
+openai-agents
+matplotlib
+typing-extensions
+PyYAML
+requests
+>>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
