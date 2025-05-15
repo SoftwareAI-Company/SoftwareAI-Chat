@@ -6,8 +6,6 @@ from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
 from pydantic import BaseModel
 
 from modules.modules import *
-from modules.Egetoolsv2 import *
-from modules.EgetMetadataAgent import *
 
 
 # from AgentsWorkFlow.Saas.Code.DevOps.DockerFile.Integration import CodeDockerFileAgent
@@ -52,7 +50,7 @@ def DashboardAIAgent(
 
     agent = Agent(
         name=str(name),
-        instructions=f"""{RECOMMENDED_PROMPT_PREFIX}\n
+        instructions=f"""
         {instruction_formatado}        
         """,
         model=str(model),

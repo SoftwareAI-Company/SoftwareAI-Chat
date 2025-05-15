@@ -6,17 +6,13 @@ from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
 from pydantic import BaseModel
 
 from modules.modules import *
-from modules.Egetoolsv2 import *
-from modules.EgetMetadataAgent import *
-
 
 class FrontEndData(BaseModel):
     FrontEndContent: str
 
 async def on_handoff(ctx: RunContextWrapper[None], input_data: FrontEndData):
     print(f"CodeRequirementstxtAgent: {input_data.FrontEndContent}")
-    # response = requests.post("http://localhost:5000/agent/refund", json={"input": input_data.reason})
-    # reply = response.json().get("reply")
+
               
 def CodeRequirementstxtAgent(session_id, appcompany,
                         path_ProjectWeb,
@@ -28,23 +24,6 @@ def CodeRequirementstxtAgent(session_id, appcompany,
                     ):
    
     os.chdir(path_ProjectWeb)
-
-
-
-    docker_file = """
-FROM python:3.9-slim
-
-WORKDIR /app
-
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copiar todos os arquivos do projeto
-COPY . /app
-
-
-    """
-
 
     agent_ids = ['RequirementsTxt']
     agents_metadata = EgetMetadataAgent(agent_ids)
@@ -62,7 +41,7 @@ COPY . /app
 
     agent = Agent(
         name=str(name),
-        instructions=f"""{RECOMMENDED_PROMPT_PREFIX}\n
+        instructions=f"""
         {instruction_formatado}        
         """,
         model=str(model),

@@ -6,19 +6,15 @@ from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
 from pydantic import BaseModel
 
 from modules.modules import *
-from modules.Egetoolsv2 import *
-from modules.EgetMetadataAgent import *
 
 
-from AgentsWorkFlow.Saas.Code.DevOps.DockerCompose.Integration import CodeDockerComposeAgent
 
 class FrontEndData(BaseModel):
     FrontEndContent: str
 
 async def on_handoff(ctx: RunContextWrapper[None], input_data: FrontEndData):
     print(f"CodeDockerFileAgent: {input_data.FrontEndContent}")
-    # response = requests.post("http://localhost:5000/agent/refund", json={"input": input_data.reason})
-    # reply = response.json().get("reply")
+
               
 def CodeDockerFileAgent(session_id, appcompany,
                         path_ProjectWeb,
@@ -27,33 +23,10 @@ def CodeDockerFileAgent(session_id, appcompany,
                         path_css,
                         doc_md,
                         Keys_path,
+                        docker_file,
                     ):
    
     os.chdir(path_ProjectWeb)
-
-
-    agent_, handoff_obj_CodeDockerComposeAgent = CodeDockerComposeAgent(session_id, appcompany,
-                        path_ProjectWeb,
-                        path_html,
-                        path_js,
-                        path_css,
-                        doc_md,
-                        Keys_path,
-                    )
-
-    docker_file = """
-FROM python:3.9-slim
-
-WORKDIR /app
-
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copiar todos os arquivos do projeto
-COPY . /app
-
-
-    """
 
 
 
@@ -73,12 +46,11 @@ COPY . /app
 
     agent = Agent(
         name=str(name),
-        instructions=f"""{RECOMMENDED_PROMPT_PREFIX}\n
+        instructions=f"""
         {instruction_formatado}        
         """,
         model=str(model),
         tools=Tools_Name_dict,
-        handoffs=[handoff_obj_CodeDockerComposeAgent],
     )
 
 

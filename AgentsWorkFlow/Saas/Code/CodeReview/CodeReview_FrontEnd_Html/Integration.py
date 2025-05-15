@@ -69,8 +69,6 @@ def CodeReviewFrontEndHtmlAgent(
                                 doc_md,
                                 Keys_path,
                                 script_base_login_js,
-                                checkout_payment_button,
-                                checkout_payment_selected,
                       )
     agent_, handoff_obj_CodeIndexFrontEnd= CodeIndexFrontEnd(
                         session_id, 

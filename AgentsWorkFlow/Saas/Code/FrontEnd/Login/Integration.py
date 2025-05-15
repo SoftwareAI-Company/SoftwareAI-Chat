@@ -6,10 +6,7 @@ from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
 from pydantic import BaseModel
 
 from modules.modules import *
-from modules.Egetoolsv2 import *
-from modules.EgetMetadataAgent import *
 
-from AgentsWorkFlow.Saas.Code.FrontEnd.Checkout.Integration import CodeCheckoutFrontEnd
 
 class FrontEndData(BaseModel):
     FrontEndContent: str
@@ -29,25 +26,11 @@ def CodeLoginFrontEnd(
                                 doc_md,
                                 Keys_path,
                                 script_base_login_js,
-                                checkout_payment_button,
-                                checkout_payment_selected,
+
                       ):
 
     os.chdir(path_ProjectWeb)
     path_Keys = Keys_path
-
-    agent_, handoff_obj_CodeCheckoutFrontEnd = CodeCheckoutFrontEnd(
-                        session_id, 
-                        appcompany,
-                        path_ProjectWeb,
-                        path_html,
-                        path_js,
-                        path_css,
-                        doc_md,
-                        Keys_path,
-                        checkout_payment_button,
-                        checkout_payment_selected,
-                    )
 
     agent_ids = ['Login']
     agents_metadata = EgetMetadataAgent(agent_ids)
@@ -65,12 +48,12 @@ def CodeLoginFrontEnd(
 
     agent = Agent(
         name=str(name),
-        instructions=f"""{RECOMMENDED_PROMPT_PREFIX}\n
+        instructions=f"""
         {instruction_formatado}        
         """,
         model=str(model),
         tools=Tools_Name_dict,
-        handoffs=[handoff_obj_CodeCheckoutFrontEnd],
+        # handoffs=[handoff_obj_CodeCheckoutFrontEnd],
     )
 
     

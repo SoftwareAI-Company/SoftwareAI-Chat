@@ -8,10 +8,6 @@ from pydantic import BaseModel
 from modules.modules import *
 
 
-from AgentsWorkFlow.Saas.Code.DevOps.DeployProjectModeEasy.Integration import DeployProjectModeEasy
-
-
-
 class FrontEndData(BaseModel):
     FrontEndContent: str
 
@@ -31,14 +27,6 @@ def RunBuildProject(session_id, appcompany,
 
     os.chdir(path_ProjectWeb)
 
-    _, handoff_DeployProjectModeEasy = DeployProjectModeEasy(session_id, appcompany,
-                        path_ProjectWeb,
-                        path_html,
-                        path_js,
-                        path_css,
-                        doc_md,
-                        Keys_path,
-                    )
     
     agent_ids = ['RunBuildProject']
     agents_metadata = EgetMetadataAgent(agent_ids)
@@ -57,12 +45,12 @@ def RunBuildProject(session_id, appcompany,
     agent = Agent(
         name=str(name),
         instructions=f"""
-{RECOMMENDED_PROMPT_PREFIX}\n
+
 {instruction_formatado}        
         """,
         model=str(model),
         tools=Tools_Name_dict,
-        handoffs=[handoff_DeployProjectModeEasy]
+        # handoffs=[handoff_DeployProjectModeEasy]
     )
 
 

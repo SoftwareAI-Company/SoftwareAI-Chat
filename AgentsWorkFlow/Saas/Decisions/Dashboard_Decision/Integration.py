@@ -15,14 +15,13 @@ from AgentsWorkFlow.Saas.Code.FrontEnd.Dashboard.Dashboard_Learning_Management_A
 from AgentsWorkFlow.Saas.Code.FrontEnd.Dashboard.Dashboard_Supply_Chain_Agent.Integration import Dashboard_Supply_Chain_Agent
 
 
-from modules.modules import *
 
+class Data(BaseModel):
+    Content: str
 
-class FrontEndData(BaseModel):
-    FrontEndContent: str
+async def on_handoff(ctx: RunContextWrapper[None], input_data: Data):
+    print(f"CodeFrontEndDecisionDashboard: {input_data.Content}")
 
-async def on_handoff(ctx: RunContextWrapper[None], input_data: FrontEndData):
-    print(f"CodeFrontEndDecisionDashboard: {input_data.FrontEndContent}")
 
               
 def CodeFrontEndDecisionDashboard(
@@ -131,13 +130,15 @@ def CodeFrontEndDecisionDashboard(
     model = agents_metadata['Dashboard_Decision']["model"]
     instruction = agents_metadata['Dashboard_Decision']["instruction"]
 
+    instruction_formatado = format_instruction(instruction, locals())
     try:
         tools_TypeProject = agents_metadata['Dashboard_Decision']["tools"]
         Tools_Name_dict = Egetoolsv2(list(tools_TypeProject))
         agent = Agent(
             name=str(name),
-            instructions=f"""{RECOMMENDED_PROMPT_PREFIX}\n
-            {instruction}        
+            instructions=f"""
+{RECOMMENDED_PROMPT_PREFIX}\n
+{instruction_formatado}        
             """,
             model=str(model),
             tools=Tools_Name_dict,
@@ -156,8 +157,9 @@ def CodeFrontEndDecisionDashboard(
                 
         agent = Agent(
             name=str(name),
-            instructions=f"""{RECOMMENDED_PROMPT_PREFIX}\n
-            {instruction}        
+            instructions=f"""
+{RECOMMENDED_PROMPT_PREFIX}\n
+{instruction_formatado}        
             """,
             model=str(model),
             handoffs=[
@@ -174,5 +176,9 @@ def CodeFrontEndDecisionDashboard(
         )
 
 
-    return agent
-
+    handoff_obj = handoff(
+        agent=agent,
+        on_handoff=on_handoff,
+        input_type=Data,
+    )
+    return agent, handoff_obj
