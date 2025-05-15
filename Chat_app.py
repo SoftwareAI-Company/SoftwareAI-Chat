@@ -8,50 +8,6 @@ from softwareai_engine_library.EngineProcess.EgetMetadataAgent import *
 #########################################
 from softwareai_engine_library.EngineProcess.EgetTools import *
 #########################################
-<<<<<<< HEAD
-from AgentsWorkFlow.Saas.Code.BackEnd.api_create_checkout.Integration import CodeFlaskBackEndapi_create_checkoutAgent
-from AgentsWorkFlow.Saas.Code.BackEnd.api_login.Integration import CodeFlaskBackEndapi_loginAgent
-from AgentsWorkFlow.Saas.Code.BackEnd.api_register.Integration import CodeFlaskBackEndapi_registerAgent
-from AgentsWorkFlow.Saas.Code.BackEnd.basic_endpoints.Integration import CodeFlaskBackEnd_basic_endpointsAgent
-from AgentsWorkFlow.Saas.Code.BackEnd.webhook.Integration import CodeFlaskBackEndwebhookAgent
-
-from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_BackEnd_Endpoints.Integration import CodeBackendEndpointscodereviewAgent
-from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_DevOps_Docker.Integration import CodeReview_DevOps_Docker
-from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_FrontEnd_Html.Integration import CodeReviewFrontEndHtmlAgent
-from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_FrontEnd_JS.Integration import CodeReviewFrontEndJSAgent
-from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_Keys.Integration import CodeReviewKeysAgent
-from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_Preproject.Integration import CodeReview_Preproject
-from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_Timeline.Integration import CodeReview_Timeline
-
-from AgentsWorkFlow.Saas.Code.DevOps.DeployProjectModeEasy.Integration import DeployProjectModeEasy
-from AgentsWorkFlow.Saas.Code.DevOps.DockerBuild.Integration import CodeDockerBuildAgent
-from AgentsWorkFlow.Saas.Code.DevOps.DockerCompose.Integration import CodeDockerComposeAgent
-from AgentsWorkFlow.Saas.Code.DevOps.DockerFile.Integration import CodeDockerFileAgent
-from AgentsWorkFlow.Saas.Code.DevOps.GitUpload.Integration import CodeUploadGit
-from AgentsWorkFlow.Saas.Code.DevOps.RequirementsTxt.Integration import CodeRequirementstxtAgent
-from AgentsWorkFlow.Saas.Code.DevOps.RunBuildProject.Integration import RunBuildProject
-
-from AgentsWorkFlow.Saas.Code.FrontEnd.Checkout.Integration import CodeCheckoutFrontEnd
-from AgentsWorkFlow.Saas.Code.FrontEnd.Index.Integration import CodeIndexFrontEnd
-from AgentsWorkFlow.Saas.Code.FrontEnd.Login.Integration import CodeLoginFrontEnd
-from AgentsWorkFlow.Saas.Code.FrontEnd.NavigationJS.Integration import CodeNavigationJSFrontEnd
-
-from AgentsWorkFlow.Saas.Code.ProductManager.CreateProduct.Integration import CreateProduct
-
-from AgentsWorkFlow.Saas.Code.ProjectManager.Documentation.Modules.Integration import CodeDocumentationModulesAgent
-from AgentsWorkFlow.Saas.Code.ProjectManager.Documentation.Staticjs.Integration import CodeDocumentationStaticjsAgent
-from AgentsWorkFlow.Saas.Code.ProjectManager.Documentation.Technich.Integration import CodeDocumentationTechnichAgent
-from AgentsWorkFlow.Saas.Code.ProjectManager.Keys_env.Integration import CodeFlaskBackEndKeysenvAgent
-from AgentsWorkFlow.Saas.Code.ProjectManager.Keys_fb.Integration import CodeFlaskBackEnd_Keys_fb_STATIC
-from AgentsWorkFlow.Saas.Code.ProjectManager.Timeline.Integration import CodeRequirementsAndTimeline
-
-from AgentsWorkFlow.Saas.Code.QA.unittest_login_user_by_ui.Integration import unittest_login_user_by_ui
-from AgentsWorkFlow.Saas.Code.QA.unittest_user_checkout_by_ui.Integration import unittest_user_checkout_by_ui
-from AgentsWorkFlow.Saas.Code.QA.unittest_user_created_by_ui.Integration import unittest_user_created_by_ui
-
-from AgentsWorkFlow.Saas.Decisions.Dashboard_Decision.Integration import CodeFrontEndDecisionDashboard
-from AgentsWorkFlow.Saas.Decisions.TypeProject.Integration import TriageAgent
-=======
 
 
 from AgentsWorkFlow.Saas.Decisions.TypeProject.Integration import TriageAgent
@@ -82,7 +38,6 @@ from AgentsWorkFlow.Saas.Code.FrontEnd.Index.Integration import CodeIndexFrontEn
 from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_Preproject.Integration import CodeReview_Preproject
 from AgentsWorkFlow.Saas.Code.CodeReview.CodeReview_Timeline.Integration import CodeReview_Timeline
 
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
 
 from Keys.keys import *
@@ -167,26 +122,12 @@ def index():
     logger.info(f"WEBHOOK_SECRET{WEBHOOK_SECRET}")
     return render_template('home.html')
 
-<<<<<<< HEAD
-@app.route('/chat')
-@login_required
-def chat():
-    if 'user' not in session:
-        return redirect(url_for('login')) 
-    return render_template('chat.html')
-
-=======
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 @app.route('/dashboard')
 @login_required
 def dashboard():
     if 'user' not in session:
         return redirect(url_for('login')) 
-<<<<<<< HEAD
-    return render_template('dashboard.html')
-=======
     return render_template('chat.html')
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
 @app.route('/login')
 def login():
@@ -1172,14 +1113,6 @@ Regra 1 - Caso seja solicitado algum web site que se enquadre no tipo Saas (soft
 Regra 2 - Caso usuario esteja conversando e ou escrevendo apenas converse respondendo nao encaminhe para nenhum agente e nao execute make_httprequest
 
 
-<<<<<<< HEAD
-Regra 3 - Caso usuario diga que concluiu a instalacao da extencao Release Share e retornar uma url do projeto
-nao execute make_httprequest e encaminhe para agente 
-
-
-
-=======
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
 
             """,
@@ -1281,11 +1214,7 @@ def index():
 # Rota para a página de Login
 @app.route('/login')
 def login():
-<<<<<<< HEAD
-    return render_template('login.html')
-=======
     return render_template('loginAndRegistrer.html')
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     '''
 
     dashboard = '''
@@ -1773,12 +1702,6 @@ def stripe_webhook():
 
     '''
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     checkout_payment_button = f"""
 
 document.addEventListener("DOMContentLoaded", function() {{
@@ -1989,8 +1912,6 @@ document.getElementById('register-btn').addEventListener('click', () => {
     
     navigation_js = """
 
-<<<<<<< HEAD
-=======
 /* navigation.js - Gerencia a navegação via cliques, especificamente para os botões de planos. */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -2018,7 +1939,6 @@ if (!premiumPlanBtn) {
 });
 
 
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     """
     
     landing = """
@@ -2202,86 +2122,6 @@ API_BASE_URL="http://127.0.0.1:5000"
 
     '''
 
-<<<<<<< HEAD
-    docker_file = f"""
-FROM python:3.12-slim
-RUN apt-get update && \
-    apt-get install -y \
-    git
-
-# Install Node.js 22.x (needed for codex CLI)
-RUN apt-get update && \
-    apt-get install -y curl gnupg ca-certificates && \
-    curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
-    apt-get install -y nodejs && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install codex CLI globally
-RUN npm install -g @openai/codex
-
-WORKDIR /app
-
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-RUN git init /app
-
-# Copiar todos os arquivos do projeto
-COPY . /app
-
-
-
-    """
-   
-
-    docker_compose_file = f"""
-version: '3.8'
-
-services:
-  landingpage:
-    build: .
-    container_name: landingpageapp
-    restart: always
-    ports:
-      - "5000:5000"
-    volumes:
-      - .:/app
-      - /var/run/docker.sock:/var/run/docker.sock
-    command: >
-      sh -c "python app.py"
-    mem_limit: 500MB
-    cpus: "1.5"
-
-
-    """
-   
-   
-   
-    async def generate_response():
-        print("🧠 Enviando mensagem ao agente de triagem...")
-
-        # /api/AgentsWorkFlow/Saas/teams/ProjectManager V
-
-        # /api/AgentsWorkFlow/Saas/teams/FrontEnd V
-
-        # /api/AgentsWorkFlow/Saas/teams/BackEnd V
-
-        # /api/AgentsWorkFlow/Saas/teams/DevOps/Docker V
-
-        # /api/AgentsWorkFlow/Saas/teams/Documentation V
-
-        # /api/AgentsWorkFlow/Saas/teams/DevOps/RunBuild V
-
-        # /api/AgentsWorkFlow/Saas/teams/DevOps/EasyDeploy V
-
-        # /api/AgentsWorkFlow/Saas/teams/DevOps/UploadGit V
-
-        # /api/AgentsWorkFlow/Saas/teams/QA 
-
-        # /api/AgentsWorkFlow/Saas/teams/ProductManager
-
-
-=======
 
     async def generate_response():
         print("🧠 Enviando mensagem ao agente de triagem...")
@@ -2305,7 +2145,6 @@ services:
         # /api/AgentsWorkFlow/Saas/teams/ProductManager
 
         # /api/AgentsWorkFlow/Saas/teams/DevOps/UploadGit
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
         
 
@@ -2335,11 +2174,7 @@ services:
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/ProjectManager', methods=['POST'])
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))
-<<<<<<< HEAD
-def api_AgentsWorkFlow_Saas_teams_ProjectManager(): 
-=======
 def api_AgentsWorkFlow_Saas_teams_ProjectManager():
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     data = request.get_json()
     session_id = data.get("session_id")
     user_email = data.get("user_email")
@@ -2359,169 +2194,6 @@ def api_AgentsWorkFlow_Saas_teams_ProjectManager():
         return erro
 
     async def generate_response():
-<<<<<<< HEAD
-
-
-        async def _project_manager_logic(data, appcompany):
-            session_id = data["session_id"]
-            # return {"step": "ProjectManager", "session_id": session_id}
-            user_email = data["user_email"]
-            agent = TriageAgent(
-                session_id, user_email,
-                path_ProjectWeb, path_html, path_js, path_css, doc_md, path_Keys
-            )
-
-            # retry + fallback
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, data["user_message"],
-                        WEBHOOK_URL, session_id, user_email, "1", appcompany
-                    )
-                    return {"step": "ProjectManager", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            # se falhar 3 vezes, devolve com fallback
-            return {
-                "step": "ProjectManager",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _code_review_preproject_logic(data, appcompany):
-            session_id = data["session_id"]
-            # return {"step": "ProjectManager", "session_id": session_id}
-            session_id         = data["session_id"]
-            user_email         = data["user_email"]
-            prompt_continuous  = data.get("prompt_continuous", "")
-            agent, _ = CodeReview_Preproject(session_id, appcompany,
-                                path_ProjectWeb,
-                                path_html,
-                                path_js,
-                                path_css,
-                                doc_md,
-                                path_Keys,
-                                data["user_message"]
-                                )
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_CodeReview_Preproject", appcompany
-                    )
-                    return {"step": "CodeReview_Preproject", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeReview_Preproject",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _code_requirements_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeRequirementsAndTimeline(
-                session_id, user_email,
-                path_ProjectWeb, path_html, path_js, path_css, doc_md, path_Keys
-            )
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_CodeRequirementsAndTimeline", appcompany
-                    )
-                    return {"step": "CodeRequirementsAndTimeline", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeRequirementsAndTimeline",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _code_review_timeline_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeReview_Timeline(
-                session_id, user_email,
-                path_ProjectWeb, path_html, path_js, path_css, doc_md, path_Keys
-            )
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_CodeReview_Timeline", appcompany
-                    )
-                    return {"step": "CodeReview_Timeline", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeReview_Timeline",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        def run_project_manager(data, appcompany):
-            return asyncio.run(_project_manager_logic(data, appcompany))
-
-        def run_code_review_preproject(data, appcompany):
-            return asyncio.run(_code_review_preproject_logic(data, appcompany))
-
-        def run_code_requirements(data, appcompany):
-            return asyncio.run(_code_requirements_logic(data, appcompany))
-
-        def run_code_review_timeline(data, appcompany):
-            return asyncio.run(_code_review_timeline_logic(data, appcompany))
-
-
-        data = {
-            "session_id": session_id,
-            "user_email": user_email,
-            "user_message": user_message,
-            "prompt_continuous": prompt_continuous,
-        }
-
-        results = []
-        try:
-            results.append(run_project_manager(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-        try:
-            results.append(run_code_review_preproject(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-        try:
-            results.append(run_code_requirements(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-        try:
-            results.append(run_code_review_timeline(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-=======
         # Run 4 agents 
         agent_TriageAgent = TriageAgent(
             session_id,
@@ -2618,7 +2290,6 @@ def api_AgentsWorkFlow_Saas_teams_ProjectManager():
             "agent_CodeReview_Timeline",
             appcompany
             )
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
 
     def runner():
@@ -2630,14 +2301,8 @@ def api_AgentsWorkFlow_Saas_teams_ProjectManager():
         "session_id": session_id,
     }), 201
 
-<<<<<<< HEAD
-
-@app.route('/api/AgentsWorkFlow/Saas/teams/FrontEnd', methods=['POST'])
-@limiter.limit(lambda: dynamic_rate_limit(appcompany)) 
-=======
 @app.route('/api/AgentsWorkFlow/Saas/teams/FrontEnd', methods=['POST'])
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 def api_AgentsWorkFlow_Saas_teams_FrontEnd():
     data = request.get_json()
     session_id = data.get("session_id")
@@ -2653,12 +2318,6 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
     path_Keys = data.get("path_Keys")
     Keys_path = path_Keys
     type_stream = data.get("type_stream")
-<<<<<<< HEAD
-    user_code_init_env = data.get("user_code_init_env")
-    firebase_db_url = data.get("firebase_db_url")
-    user_credentials = data.get("user_credentials")
-=======
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     prompt_continuous = data.get("prompt_continuous")
 
     usuario, erro = autenticar_usuario(appcompany=appcompany)
@@ -2666,49 +2325,6 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
         return erro
 
     async def generate_response():
-<<<<<<< HEAD
-
-
-        async def _CodeIndexFrontEnd_logic(data, appcompany):
-            session_id = data["session_id"]
-            user_email = data["user_email"]
-            agent, _ = CodeIndexFrontEnd(
-                    session_id,
-                    user_email,
-                    path_ProjectWeb,
-                    path_html,
-                    path_js,
-                    path_css,
-                    doc_md,
-                    Keys_path,
-            )
-
-            # retry + fallback
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, data["prompt_continuous"],
-                        WEBHOOK_URL, session_id, user_email, "1", appcompany
-                    )
-                    return {"step": "CodeIndexFrontEnd", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            # se falhar 3 vezes, devolve com fallback
-            return {
-                "step": "CodeIndexFrontEnd",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeLoginFrontEnd_logic(data, appcompany):
-            session_id         = data["session_id"]
-            user_email         = data["user_email"]
-            prompt_continuous  = data.get("prompt_continuous", "")
-            agent, _ = CodeLoginFrontEnd(
-=======
         # Run 1 agents
         agent_CodeIndexFrontEnd, _ = CodeIndexFrontEnd(
             session_id,
@@ -2733,7 +2349,6 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
             )
 
         agent_CodeLoginFrontEnd, _ = CodeLoginFrontEnd(
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
                                     "", 
                                     "",
                                     path_ProjectWeb,
@@ -2743,109 +2358,6 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
                                     doc_md,
                                     Keys_path,
                                     script_base_login_js,
-<<<<<<< HEAD
-        
-
-                                )
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeLoginFrontEnd", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeLoginFrontEnd",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeCheckoutFrontEnd_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeCheckoutFrontEnd(
-                        session_id, 
-                        appcompany,
-                        path_ProjectWeb,
-                        path_html,
-                        path_js,
-                        path_css,
-                        doc_md,
-                        Keys_path,
-                        checkout_payment_button,
-                        checkout_payment_selected,
-                    )
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeCheckoutFrontEnd", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeCheckoutFrontEnd",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeNavigationJSFrontEnd_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeNavigationJSFrontEnd(
-                                session_id, 
-                                appcompany,
-                                path_ProjectWeb,
-                                path_html,
-                                path_js,
-                                path_css,
-                                doc_md,
-                                Keys_path,
-                                checkout_payment_button,
-                                checkout_payment_selected,
-                            )
-
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeNavigationJSFrontEnd", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeNavigationJSFrontEnd",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeFrontEndDecisionDashboard_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeFrontEndDecisionDashboard(
-=======
                                     checkout_payment_button,
                                     checkout_payment_selected,
 
@@ -2865,7 +2377,6 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
 
 
         agent_CodeFrontEndDecisionDashboard, _ = CodeFrontEndDecisionDashboard(
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
                                     "", 
                                     "",
                                     path_ProjectWeb,
@@ -2874,227 +2385,6 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
                                     path_css,
                                     doc_md,
                                     Keys_path,
-<<<<<<< HEAD
-                        )
-
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeFrontEndDecisionDashboard", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeFrontEndDecisionDashboard",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeReviewFrontEndHtmlAgent_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeReviewFrontEndHtmlAgent(                                
-                                        session_id, 
-                                        appcompany,
-                                        path_ProjectWeb,
-                                        path_html,
-                                        path_js,
-                                        path_css,
-                                        doc_md,
-                                        Keys_path,
-                                        script_base_login_js,
-                                        checkout_payment_button,
-                                        checkout_payment_selected,
-                            )
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeReviewFrontEndHtmlAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeReviewFrontEndHtmlAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeKeysenvAgent_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeFlaskBackEndKeysenvAgent(                                
-                                        session_id, 
-                                        appcompany,
-                                        path_ProjectWeb,
-                                        path_html,
-                                        path_js,
-                                        path_css,
-                                        doc_md,
-                                        Keys_path,
-                                        user_code_init_env
-                            )
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeFlaskBackEndKeysenvAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeFlaskBackEndKeysenvAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeReviewKeysAgent_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeReviewKeysAgent(session_id, appcompany,
-                                        path_ProjectWeb,
-                                        path_html,
-                                        path_js,
-                                        path_css,
-                                        doc_md,
-                                        Keys_path,
-                                        user_code_init_env,
-                                    )
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeReviewKeysAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeReviewKeysAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        def run_CodeIndexFrontEnd(data, appcompany):
-            return asyncio.run(_CodeIndexFrontEnd_logic(data, appcompany))
-
-        def run_CodeLoginFrontEnd(data, appcompany):
-            return asyncio.run(_CodeLoginFrontEnd_logic(data, appcompany))
-
-        def run_CodeCheckoutFrontEnd(data, appcompany):
-            return asyncio.run(_CodeCheckoutFrontEnd_logic(data, appcompany))
-
-        def run_CodeNavigationJSFrontEnd(data, appcompany):
-            return asyncio.run(_CodeNavigationJSFrontEnd_logic(data, appcompany))
-
-        def run_CodeFrontEndDecisionDashboard(data, appcompany):
-            return asyncio.run(_CodeFrontEndDecisionDashboard_logic(data, appcompany))
-
-        def run_CodeReviewFrontEndHtmlAgent(data, appcompany):
-            return asyncio.run(_CodeReviewFrontEndHtmlAgent_logic(data, appcompany))
-
-        def run_CodeKeysenvAgent(data, appcompany):
-            return asyncio.run(_CodeKeysenvAgent_logic(data, appcompany))
-
-        def run_CodeReview_Keys(data, appcompany):
-            return asyncio.run(_CodeReviewKeysAgent_logic(data, appcompany))
-
-
-
-        data = {
-                "session_id": session_id,
-                "user_email": user_email,
-                "prompt_continuous": prompt_continuous,
-            }
-
-        appcmp     = appcompany
-        session_id = data.get("session_id", "")
-
-        results = []
-
-
-        try:
-            results.append(run_CodeIndexFrontEnd(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-        try:
-            results.append(run_CodeLoginFrontEnd(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-        try:
-            results.append(run_CodeKeysenvAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-                
-        CodeFlaskBackEnd_Keys_fb_STATIC(
-                                    user_credentials,
-                                    firebase_db_url,
-                                    session_id, appcompany,
-                                    path_ProjectWeb,
-                                    path_html,
-                                    path_js,
-                                    path_css,
-                                    doc_md,
-                                    Keys_path,
-                                    user_code_init_env,
-                                )
-        print(f"🤖 Sistema de credenciais firebase executado")
-
-        try:
-            results.append(run_CodeReview_Keys(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-        try:
-            results.append(run_CodeCheckoutFrontEnd(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-        try:
-            results.append(run_CodeNavigationJSFrontEnd(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-        try:
-            results.append(run_CodeFrontEndDecisionDashboard(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-
-        try:
-            results.append(run_CodeReviewFrontEndHtmlAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-=======
 
                                 )
     
@@ -3108,7 +2398,6 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
             "6",
             appcompany
             )
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
 
     def runner():
@@ -3121,18 +2410,12 @@ def api_AgentsWorkFlow_Saas_teams_FrontEnd():
     }), 201
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/BackEnd', methods=['POST'])
-<<<<<<< HEAD
-@limiter.limit(lambda: dynamic_rate_limit(appcompany))  
-=======
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 def api_AgentsWorkFlow_Saas_teams_BackEnd():
     data = request.get_json()
     session_id = data.get("session_id")
     user_email = data.get("user_email")
     basic_endpoints = data.get("basic_endpoints")
-<<<<<<< HEAD
-=======
     user_code_init_env = data.get("user_code_init_env")
     user_credentials = data.get("user_credentials")
     firebase_db_url = data.get("firebase_db_url")
@@ -3257,7 +2540,6 @@ def api_AgentsWorkFlow_Saas_teams_DevOps():
     session_id = data.get("session_id")
     user_email = data.get("user_email")
     basic_endpoints = data.get("basic_endpoints")
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     path_ProjectWeb = data.get("path_ProjectWeb")
     path_html = data.get("path_html")
     path_js = data.get("path_js")
@@ -3266,341 +2548,6 @@ def api_AgentsWorkFlow_Saas_teams_DevOps():
     path_Keys = data.get("path_Keys")
     Keys_path = path_Keys
     type_stream = data.get("type_stream")
-<<<<<<< HEAD
-    createcheckout = data.get("createcheckout")
-    api_register = data.get("api_register")
-    api_login = data.get("api_login")
-    code_webhook = data.get("code_webhook")
-    index_ = data.get("index_")
-    checkout = data.get("checkout")
-    checkout_sucess = data.get("checkout_sucess")
-    api_create_checkout = data.get("api_create_checkout")
-    webhook = data.get("webhook")
-
-    prompt_continuous = data.get("prompt_continuous")
-
-
-    usuario, erro = autenticar_usuario(appcompany=appcompany)
-    if erro:
-        return erro
-
-    async def generate_response():
-
-        data = {
-                "session_id": session_id,
-                "user_email": user_email,
-                "prompt_continuous": prompt_continuous,
-            }
-
-
-        async def _CodeFlaskBackEnd_basic_endpointsAgent_logic(data, appcompany):
-            session_id = data["session_id"]
-            user_email = data["user_email"]
-            agent, _ = CodeFlaskBackEnd_basic_endpointsAgent(                                
-                                            "session_id", 
-                                            "appcompany",
-                                            path_ProjectWeb,
-                                            path_html,
-                                            path_js,
-                                            path_css,
-                                            doc_md,
-                                            Keys_path,
-                                            basic_endpoints
-                                )
-
-            # retry + fallback
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, data["prompt_continuous"],
-                        WEBHOOK_URL, session_id, user_email, "1", appcompany
-                    )
-                    return {"step": "CodeFlaskBackEnd_basic_endpointsAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            # se falhar 3 vezes, devolve com fallback
-            return {
-                "step": "CodeFlaskBackEnd_basic_endpointsAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeFlaskBackEndapi_create_checkoutAgent_logic(data, appcompany):
-            session_id         = data["session_id"]
-            user_email         = data["user_email"]
-            prompt_continuous  = data.get("prompt_continuous", "")
-            agent, _ = CodeFlaskBackEndapi_create_checkoutAgent(                                
-                                        session_id, 
-                                        appcompany,
-                                        path_ProjectWeb,
-                                        path_html,
-                                        path_js,
-                                        path_css,
-                                        doc_md,
-                                        Keys_path,
-                                        createcheckout
-
-                            )
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeFlaskBackEndapi_create_checkoutAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeFlaskBackEndapi_create_checkoutAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeFlaskBackEndapi_registerAgent_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeFlaskBackEndapi_registerAgent(                                
-                                        session_id, 
-                                        appcompany,
-                                        path_ProjectWeb,
-                                        path_html,
-                                        path_js,
-                                        path_css,
-                                        doc_md,
-                                        Keys_path,
-                                        api_register,
-
-                            )
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeFlaskBackEndapi_registerAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeFlaskBackEndapi_registerAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeFlaskBackEndapi_loginAgent_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeFlaskBackEndapi_loginAgent(                                
-                                        session_id, 
-                                        appcompany,
-                                        path_ProjectWeb,
-                                        path_html,
-                                        path_js,
-                                        path_css,
-                                        doc_md,
-                                        Keys_path,
-                                        api_login
-
-                            )
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeFlaskBackEndapi_loginAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeFlaskBackEndapi_loginAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeFlaskBackEndwebhookAgent_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeFlaskBackEndwebhookAgent(                                
-                                        session_id, 
-                                        appcompany,
-                                        path_ProjectWeb,
-                                        path_html,
-                                        path_js,
-                                        path_css,
-                                        doc_md,
-                                        Keys_path,
-                                        code_webhook
-
-                            )
-
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeFlaskBackEndwebhookAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeFlaskBackEndwebhookAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeBackendEndpointscodereviewAgent_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeBackendEndpointscodereviewAgent(session_id, appcompany,
-                                path_ProjectWeb,
-                                path_html,
-                                path_js,
-                                path_css,
-                                doc_md,
-                                Keys_path,
-                                index_,
-                                login,
-                                dashboard,
-                                checkout,
-                                checkout_sucess,
-                                api_create_checkout,
-                                api_register,
-                                api_login,
-                                webhook,
-
-
-
-                            )
-
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeBackendEndpointscodereviewAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeBackendEndpointscodereviewAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-
-
-        def run_CodeFlaskBackEnd_basic_endpointsAgent(data, appcompany):
-            return asyncio.run(_CodeFlaskBackEnd_basic_endpointsAgent_logic(data, appcompany))
-
-        def run_CodeFlaskBackEndapi_create_checkoutAgent(data, appcompany):
-            return asyncio.run(_CodeFlaskBackEndapi_create_checkoutAgent_logic(data, appcompany))
-
-        def run_CodeFlaskBackEndapi_registerAgent(data, appcompany):
-            return asyncio.run(_CodeFlaskBackEndapi_registerAgent_logic(data, appcompany))
-
-        def run_CodeFlaskBackEndapi_loginAgent(data, appcompany):
-            return asyncio.run(_CodeFlaskBackEndapi_loginAgent_logic(data, appcompany))
-
-        def run_CodeFlaskBackEndwebhookAgent(data, appcompany):
-            return asyncio.run(_CodeFlaskBackEndwebhookAgent_logic(data, appcompany))
-
-        def run_CodeBackendEndpointscodereviewAgent(data, appcompany):
-            return asyncio.run(_CodeBackendEndpointscodereviewAgent_logic(data, appcompany))
-
-
-        results = []
-
-        try:
-            results.append(run_CodeFlaskBackEnd_basic_endpointsAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-        try:
-            results.append(run_CodeFlaskBackEndapi_registerAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-        try:
-            results.append(run_CodeFlaskBackEndapi_loginAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-                
-                
-        try:
-            results.append(run_CodeFlaskBackEndapi_create_checkoutAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-
-        try:
-            results.append(run_CodeFlaskBackEndwebhookAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-                
-
-        try:
-            results.append(run_CodeBackendEndpointscodereviewAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-                
-
-    def runner():
-        asyncio.run(generate_response())
-
-    threading.Thread(target=runner).start()
-    
-    return jsonify({
-        "session_id": session_id,
-    }), 201
-
-@app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/Docker', methods=['POST'])
-@limiter.limit(lambda: dynamic_rate_limit(appcompany))  
-def api_AgentsWorkFlow_Saas_teams_DevOps():
-    data = request.get_json()
-    session_id = data.get("session_id")
-    user_email = data.get("user_email")
-    docker_file = data.get("docker_file")
-    docker_compose = data.get("docker_compose")
-    dockerbuild = data.get("dockerbuild")
-    path_ProjectWeb = data.get("path_ProjectWeb")
-    path_html = data.get("path_html")
-    path_js = data.get("path_js")
-    path_css = data.get("path_css")
-    doc_md = data.get("doc_md")
-    path_Keys = data.get("path_Keys")
-    Keys_path = path_Keys
-    type_stream = data.get("type_stream")
-=======
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     prompt_continuous = data.get("prompt_continuous")
 
 
@@ -3611,222 +2558,6 @@ def api_AgentsWorkFlow_Saas_teams_DevOps():
     async def generate_response():
 
 
-<<<<<<< HEAD
-        data = {
-                "session_id": session_id,
-                "user_email": user_email,
-                "prompt_continuous": prompt_continuous,
-            }
-
-        async def _CodeDockerFileAgent_logic(data, appcompany):
-            session_id = data["session_id"]
-            user_email = data["user_email"]
-            agent, _ = CodeDockerFileAgent(session_id, appcompany,
-                                            path_ProjectWeb,
-                                            path_html,
-                                            path_js,
-                                            path_css,
-                                            doc_md,
-                                            Keys_path,
-                                            docker_file
-                                )
-
-            # retry + fallback
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, data["prompt_continuous"],
-                        WEBHOOK_URL, session_id, user_email, "1", appcompany
-                    )
-                    return {"step": "CodeDockerFileAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            # se falhar 3 vezes, devolve com fallback
-            return {
-                "step": "CodeDockerFileAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeDockerComposeAgent_logic(data, appcompany):
-            session_id         = data["session_id"]
-            user_email         = data["user_email"]
-            prompt_continuous  = data.get("prompt_continuous", "")
-            agent, _ = CodeDockerComposeAgent(session_id, appcompany,
-                                path_ProjectWeb,
-                                path_html,
-                                path_js,
-                                path_css,
-                                doc_md,
-                                Keys_path,
-                                docker_compose
-                            )
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeDockerComposeAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeDockerComposeAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeDockerBuildAgent_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeDockerBuildAgent(session_id, appcompany,
-                                path_ProjectWeb,
-                                path_html,
-                                path_js,
-                                path_css,
-                                doc_md,
-                                Keys_path,
-                                dockerbuild
-                            )
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeDockerBuildAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeDockerBuildAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeRequirementstxtAgent_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeRequirementstxtAgent(session_id, appcompany,
-                                path_ProjectWeb,
-                                path_html,
-                                path_js,
-                                path_css,
-                                doc_md,
-                                Keys_path,
-                            )
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeRequirementstxtAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeRequirementstxtAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeReview_DevOps_Docker_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeReview_DevOps_Docker(session_id, appcompany,
-                                path_ProjectWeb,
-                                path_html,
-                                path_js,
-                                path_css,
-                                doc_md,
-                                Keys_path,
-                                docker_file,
-                                docker_compose,
-                                dockerbuild
-                            )
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeReview_DevOps_Docker", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeReview_DevOps_Docker",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-
-
-        def run_CodeDockerFileAgent(data, appcompany):
-            return asyncio.run(_CodeDockerFileAgent_logic(data, appcompany))
-
-        def run_CodeDockerComposeAgent(data, appcompany):
-            return asyncio.run(_CodeDockerComposeAgent_logic(data, appcompany))
-
-        def run_CodeDockerBuildAgent(data, appcompany):
-            return asyncio.run(_CodeDockerBuildAgent_logic(data, appcompany))
-
-        def run_CodeRequirementstxtAgent(data, appcompany):
-            return asyncio.run(_CodeRequirementstxtAgent_logic(data, appcompany))
-
-        def run_CodeReview_DevOps_Docker(data, appcompany):
-            return asyncio.run(_CodeReview_DevOps_Docker_logic(data, appcompany))
-
-        results = []
-
-        try:
-            results.append(run_CodeDockerFileAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-        try:
-            results.append(run_CodeDockerComposeAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-                
-        try:
-            results.append(run_CodeDockerBuildAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-        try:
-            results.append(run_CodeRequirementstxtAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-
-        try:
-            results.append(run_CodeReview_DevOps_Docker(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-=======
         agent_CodeDockerFileAgent, _ = CodeDockerFileAgent(
                                     "", 
                                     "",
@@ -3875,7 +2606,6 @@ def api_AgentsWorkFlow_Saas_teams_DevOps():
             "8",
             appcompany
             )
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
         
     def runner():
         asyncio.run(generate_response())
@@ -3887,11 +2617,7 @@ def api_AgentsWorkFlow_Saas_teams_DevOps():
     }), 201
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/Documentation', methods=['POST'])
-<<<<<<< HEAD
-@limiter.limit(lambda: dynamic_rate_limit(appcompany))  
-=======
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 def api_AgentsWorkFlow_Saas_teams_Documentation():
     data = request.get_json()
     session_id = data.get("session_id")
@@ -3912,222 +2638,6 @@ def api_AgentsWorkFlow_Saas_teams_Documentation():
         return erro
 
     async def generate_response():
-<<<<<<< HEAD
-
-        data = {
-                "session_id": session_id,
-                "user_email": user_email,
-                "prompt_continuous": prompt_continuous,
-            }
-
-        async def _CodeDocumentationModulesAgent_logic(data, appcompany):
-            session_id = data["session_id"]
-            user_email = data["user_email"]
-            agent, _ = CodeDocumentationModulesAgent(
-                                    session_id, 
-                                    appcompany,
-                                    path_ProjectWeb,
-                                    path_html,
-                                    path_js,
-                                    path_css,
-                                    doc_md,
-                                    Keys_path,
-                                )
-
-            # retry + fallback
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, data["prompt_continuous"],
-                        WEBHOOK_URL, session_id, user_email, "1", appcompany
-                    )
-                    return {"step": "CodeDocumentationModulesAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            # se falhar 3 vezes, devolve com fallback
-            return {
-                "step": "CodeDocumentationModulesAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeDocumentationStaticjsAgent_logic(data, appcompany):
-            session_id         = data["session_id"]
-            user_email         = data["user_email"]
-            prompt_continuous  = data.get("prompt_continuous", "")
-            agent, _ = CodeDocumentationStaticjsAgent(
-                                    session_id, 
-                                    appcompany,
-                                    path_ProjectWeb,
-                                    path_html,
-                                    path_js,
-                                    path_css,
-                                    doc_md,
-                                    Keys_path,
-                                )
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeDocumentationStaticjsAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeDocumentationStaticjsAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        async def _CodeDocumentationTechnichAgent_logic(data, appcompany):
-            session_id        = data["session_id"]
-            user_email        = data["user_email"]
-            prompt_continuous = data.get("prompt_continuous", "")
-            agent, _ = CodeDocumentationTechnichAgent(
-                                    session_id, 
-                                    appcompany,
-                                    path_ProjectWeb,
-                                    path_html,
-                                    path_js,
-                                    path_css,
-                                    doc_md,
-                                    Keys_path,
-                                )
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "CodeDocumentationTechnichAgent", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "CodeDocumentationTechnichAgent",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-
-        def run_CodeDocumentationModulesAgent(data, appcompany):
-            return asyncio.run(_CodeDocumentationModulesAgent_logic(data, appcompany))
-
-        def run_CodeDocumentationStaticjsAgent(data, appcompany):
-            return asyncio.run(_CodeDocumentationStaticjsAgent_logic(data, appcompany))
-
-        def run_CodeDocumentationTechnichAgent(data, appcompany):
-            return asyncio.run(_CodeDocumentationTechnichAgent_logic(data, appcompany))
-
-        results = []
-
-        try:
-            results.append(run_CodeDocumentationModulesAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-        try:
-            results.append(run_CodeDocumentationStaticjsAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-        try:
-            results.append(run_CodeDocumentationTechnichAgent(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-
-    def runner():
-        asyncio.run(generate_response())
-
-    threading.Thread(target=runner).start()
-    
-    return jsonify({
-        "session_id": session_id,
-    }), 201
-
-@app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/RunBuild', methods=['POST'])
-@limiter.limit(lambda: dynamic_rate_limit(appcompany))  
-def api_AgentsWorkFlow_Saas_teams_DevOps_RunBuild():
-    data = request.get_json()
-    session_id = data.get("session_id")
-    user_email = data.get("user_email")
-    path_ProjectWeb = data.get("path_ProjectWeb")
-    path_html = data.get("path_html")
-    path_js = data.get("path_js")
-    path_css = data.get("path_css")
-    doc_md = data.get("doc_md")
-    path_Keys = data.get("path_Keys")
-    Keys_path = path_Keys
-    type_stream = data.get("type_stream")
-    prompt_continuous = data.get("prompt_continuous")
-
-    usuario, erro = autenticar_usuario(appcompany=appcompany)
-    if erro:
-        return erro
-
-    async def generate_response():
-
-        async def _RunBuildProject_logic(data, appcompany):
-            session_id = data["session_id"]
-            user_email = data["user_email"]
-            agent, _ = RunBuildProject(session_id, appcompany,
-                                path_ProjectWeb,
-                                path_html,
-                                path_js,
-                                path_css,
-                                doc_md,
-                                Keys_path,
-                            )
-
-            # retry + fallback
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, data["prompt_continuous"],
-                        WEBHOOK_URL, session_id, user_email, "1", appcompany
-                    )
-                    return {"step": "RunBuildProject", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            # se falhar 3 vezes, devolve com fallback
-            return {
-                "step": "RunBuildProject",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        def run_RunBuildProject(data, appcompany):
-            return asyncio.run(_RunBuildProject_logic(data, appcompany))
-
-        data = {
-                "session_id": session_id,
-                "user_email": user_email,
-                "prompt_continuous": prompt_continuous,
-            }
-        results = []
-
-        try:
-            results.append(run_RunBuildProject(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-=======
         agent_CodeDocumentationModulesAgent, _ = CodeDocumentationModulesAgent(
                             session_id, 
                             appcompany,
@@ -4150,7 +2660,6 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_RunBuild():
             appcompany
             )
         
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
     def runner():
         asyncio.run(generate_response())
 
@@ -4161,11 +2670,7 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_RunBuild():
     }), 201
 
 @app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/EasyDeploy', methods=['POST'])
-<<<<<<< HEAD
-@limiter.limit(lambda: dynamic_rate_limit(appcompany))  
-=======
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
     data = request.get_json()
     session_id = data.get("session_id")
@@ -4186,56 +2691,6 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
 
     async def generate_response():
 
-<<<<<<< HEAD
-        async def _DeployProjectModeEasy_logic(data, appcompany):
-            session_id         = data["session_id"]
-            user_email         = data["user_email"]
-            prompt_continuous  = data.get("prompt_continuous", "")
-
-            agent, _ = DeployProjectModeEasy(session_id, appcompany,
-                                path_ProjectWeb,
-                                path_html,
-                                path_js,
-                                path_css,
-                                doc_md,
-                                Keys_path,
-                            )
-
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        "info", agent, prompt_continuous,
-                        WEBHOOK_URL, session_id, user_email,
-                        "agent_", appcompany
-                    )
-                    return {"step": "DeployProjectModeEasy", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            return {
-                "step": "DeployProjectModeEasy",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-        def run_DeployProjectModeEasy(data, appcompany):
-            return asyncio.run(_DeployProjectModeEasy_logic(data, appcompany))
-
-        data = {
-                "session_id": session_id,
-                "user_email": user_email,
-                "prompt_continuous": prompt_continuous,
-            }
-
-        results = []
-        try:
-            results.append(run_DeployProjectModeEasy(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-=======
         agent_RunBuildProject, _ = RunBuildProject("session_id", "appcompany",
                             path_ProjectWeb,
                             path_html,
@@ -4259,7 +2714,6 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
             "13",
             appcompany
             )
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
     def runner():
         asyncio.run(generate_response())
@@ -4270,102 +2724,6 @@ def api_AgentsWorkFlow_Saas_teams_DevOps_EasyDeploy():
         "session_id": session_id,
     }), 201
 
-<<<<<<< HEAD
-
-@app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/UploadGit', methods=['POST'])
-@limiter.limit(lambda: dynamic_rate_limit(appcompany))
-def api_AgentsWorkFlow_Saas_teams_DevOps_UploadGit():
-    data = request.get_json()
-    session_id = data.get("session_id")
-    user_email = data.get("user_email")
-    private = data.get("private")
-    githubtoken = data.get("githubtoken")
-    repo_owner = data.get("repo_owner")
-    path_ProjectWeb = data.get("path_ProjectWeb")
-    path_html = data.get("path_html")
-    path_js = data.get("path_js")
-    path_css = data.get("path_css")
-    doc_md = data.get("doc_md")
-    path_Keys = data.get("path_Keys")
-    Keys_path = path_Keys
-    type_stream = data.get("type_stream")
-    prompt_continuous = data.get("prompt_continuous")
-
-
-    usuario, erro = autenticar_usuario(appcompany=appcompany)
-    if erro:
-        return erro
-
-    async def generate_response():
-
-        data = {
-                "session_id": session_id,
-                "user_email": user_email,
-                "prompt_continuous": prompt_continuous,
-            }
-
-        async def _CodeUploadGit_logic(data, appcompany):
-            session_id = data["session_id"]
-            user_email = data["user_email"]
-            agent, _ = CodeUploadGit(session_id, appcompany,
-                                path_ProjectWeb,
-                                path_html,
-                                path_js,
-                                path_css,
-                                doc_md,
-                                Keys_path,
-                                githubtoken,
-                                repo_owner,
-                                private
-                            )
-
-            # retry + fallback
-            for _ in range(3):
-                try:
-                    await process_stream(
-                        type_stream, agent, data["prompt_continuous"],
-                        WEBHOOK_URL, session_id, user_email, "1", appcompany
-                    )
-                    return {"step": "CodeUploadGit", "session_id": session_id}
-                except Exception as e:
-                    if "Error streaming response" in str(e):
-                        continue
-                    raise
-
-            # se falhar 3 vezes, devolve com fallback
-            return {
-                "step": "CodeUploadGit",
-                "session_id": session_id,
-                "fallback": "Erro de stream repetido"
-            }
-
-
-        def run_CodeUploadGit(data, appcompany):
-            return asyncio.run(_CodeUploadGit_logic(data, appcompany))
-
-        results = []
-
-        try:
-            results.append(run_CodeUploadGit(data, appcompany))
-        except Exception as e:
-            traceback.print_exc()
-
-    def runner():
-        asyncio.run(generate_response())
-
-    threading.Thread(target=runner).start()
-    
-    return jsonify({
-        "session_id": session_id,
-    }), 201
-
-
-
-
-
-
-=======
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 @app.route('/api/AgentsWorkFlow/Saas/teams/QA', methods=['POST'])
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))
 def api_AgentsWorkFlow_Saas_teams_QA():
@@ -4571,8 +2929,6 @@ def api_AgentsWorkFlow_Saas_teams_ProductManager():
         "session_id": session_id,
     }), 201
 
-<<<<<<< HEAD
-=======
 @app.route('/api/AgentsWorkFlow/Saas/teams/DevOps/UploadGit', methods=['POST'])
 @limiter.limit(lambda: dynamic_rate_limit(appcompany))
 def api_AgentsWorkFlow_Saas_teams_ProductManager():
@@ -4637,7 +2993,6 @@ def api_AgentsWorkFlow_Saas_teams_ProductManager():
 
 
 
->>>>>>> fee0a3f67f29d93c63fe941c1f545cb569adace2
 
 
 
